@@ -7,6 +7,9 @@ header {
 
   .logo-link {
     font-family: $header-font;
+    .logo-link-img {
+      max-width: 130px;
+    }
   }
 
   nav.top-menu {
