@@ -1,7 +1,20 @@
-<h1> Lista de Frutas, Legumes e Verduras </h1>
-<% @products.each do |product| %>
-<h2> <%= product.name %> </h2>
-<h3> <%= product.price %> </h3>
-<% end %>
-
+<div class="top-banner">
+  <div class="container">
+    <h1> Entrega de frutas, legumes e verduras orgânicas </h1>
+    <h3> A feira todo dia na sua rua </h3>
+  </div>
+</div>
+<div class="wrapper-products">
+  <div>
+    <% @products.each do |product| %>
+      <div class="col-md-4 col-sm-12">
+        <div class="product-card">
+          <img class="img-responsive" src="http://placehold.it/350x350" class="img-thumbnail">
+          <h2> <%= product.name %> </h2>
+          <h3> <%= product.price %> </h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 

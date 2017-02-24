@@ -1,30 +1,40 @@
 <div class="container">
   <div class= "row">
     <div class="col-md-9">
-      <img src="http://placehold.it/750x400">
+      <img class="img-responsive" src="http://placehold.it/750x400" class="img-thumbnail" >
     </div>
     <div class="product-details">
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-3">
         <h2><%= @product.name %></h2>
         <h3>R$ <%= @product.price %></h3>
-        <p>Detalhes do Produto</p>
+        <p>Quantidade</p>
+        <button type="button" class="btn btn-sucess">Adicionar a cesta</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tag-list">
+        <span><%= @product.category=%></span>
+        <% if @product.organic? %>
+          <span>Orgânico</span>
+        <% else %>
+          <span>Comum</span>
+        <% end %>
+        <span>Validade 3 dias</span>
       </div>
     </div>
   </div>
   <h4> Que tal levar também: </h4>
   <div class= "row">
     <div class="col-md-4">
-      <img src="http://placehold.it/300x150">
+      <img class="img-responsive" src="http://placehold.it/300x150">
     </div>
     <div class="col-md-4">
-      <img src="http://placehold.it/300x150">
+      <img class="img-responsive" src="http://placehold.it/300x150">
     </div>
     <div class="col-md-4">
-      <img src="http://placehold.it/300x150">
+      <img class="img-responsive" src="http://placehold.it/300x150">
     </div>
   </div>
 </div>
-
-
-
-

@@ -1,0 +1,35 @@
+.tag {
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 1em;
+  margin: 5px;
+  border: 1px solid white;
+}
+
+.tag-list {
+  margin-top: 10px;
+  span {
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 1em;
+    line-height: 2.8;
+    background-color: #AEFFD8;
+    color: #2DD881;
+    text-decoration: none;
+  }
+}
+
+.top-banner{
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://placehold.it/1280x720');
+  background-size: cover;
+  text-align: center;
+  h1,h3 {
+  color: #fff;
+  }
+}
+
+.wrapper-products{
+  background-color: #F3F3F3;
+}
