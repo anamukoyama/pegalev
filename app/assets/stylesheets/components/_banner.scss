@@ -37,4 +37,9 @@
       display: block;
     }
   }
+
+  &.inside {
+    min-height: 100px;
+    margin-bottom: 50px;
+  }
 }

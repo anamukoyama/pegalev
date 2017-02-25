@@ -10,6 +10,13 @@ class MarketsController < ApplicationController
   end
 
   def create
+    @market = Market.new(market_params)
+    if @market.save
+      flash[:notice] = "Feira criada com sucesso"
+      redirect_to market_path(@market)
+    else
+      render :new
+    end
   end
 
   def edit
