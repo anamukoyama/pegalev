@@ -1,0 +1,7 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.input :name, value: @product.name, placeholder: "Ex: Morango" %><br>
+  <%= f.input :category, value: @product.category, collection: Product::CATEGORIES, prompt: "Escolha uma categoria"%>
+  <%= f.input :price, value: @product.price, placeholder: "Ex: 10", label: "Preço"  %><br>
+  <%= f.input :organic, value: true, as: :radio_buttons, label: "É um alimento orgânico?" %>
+  <%= f.button :submit, class: "btn btn-success btn-lg" %></div>
+<% end %>
