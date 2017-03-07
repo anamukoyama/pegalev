@@ -1,0 +1,10 @@
+<%= simple_form_for(@market) do |f| %>
+  <%= f.input :address, label: "Endereço" %>
+  <%= f.input :zipcode, label: "CEP" %>
+  <%= f.input :city, label: "Cidade" %>
+  <%= f.input :district, label: "Bairro" %>
+  <%= f.input :state, label: "Estado" %>
+  <%= f.input :number, label: "Número" %>
+  <%= f.input :complement, label: "Complemento" %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>

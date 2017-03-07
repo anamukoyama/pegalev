@@ -10,6 +10,13 @@ class MarketsController < ApplicationController
   end
 
   def create
+    @market = Market.new(market_params)
+    if @market.save
+      flash[:notice] = "Feira criada com sucesso"
+      redirect_to market_path(@market)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -22,4 +29,11 @@ class MarketsController < ApplicationController
     @market.destroy
     redirect_to markets_path
   end
+
+  private
+
+  def market_params
+     params.require(:market).permit(:address, :zipcode, :city, :district, :state, :number, :complement, :latitude, :longitude)
+  end
+
 end
