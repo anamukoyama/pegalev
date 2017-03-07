@@ -29,4 +29,11 @@ class MarketsController < ApplicationController
     @market.destroy
     redirect_to markets_path
   end
+
+  private
+
+  def market_params
+     params.require(:market).permit(:address, :zipcode, :city, :district, :state, :number, :complement, :latitude, :longitude)
+  end
+
 end
