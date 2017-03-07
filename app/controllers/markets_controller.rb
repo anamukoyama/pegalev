@@ -1,5 +1,8 @@
 class MarketsController < ApplicationController
+  before_action :set_market, only: [:show]
+
   def index
+    @markets = Market.all
   end
 
   def show
@@ -32,8 +35,12 @@ class MarketsController < ApplicationController
 
   private
 
+  def set_market
+    @market = Market.find(params[:id])
+  end
+
   def market_params
-     params.require(:market).permit(:address, :zipcode, :city, :district, :state, :number, :complement, :latitude, :longitude)
+     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude)
   end
 
 end
