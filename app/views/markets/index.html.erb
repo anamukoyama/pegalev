@@ -1,4 +1,19 @@
 <div class="banner inside"></div>
 <div class="container">
-  <p><%= @markets %></p>
+  <table class="table">
+  <tr>
+    <th>Nome</th>
+    <th>Endereço</th>
+    <th>Matrícula</th>
+    <th>Dia na semana</th>
+  </tr>
+  <% @markets.each do |m| %>
+    <tr>
+      <td><%= m.name %></td>
+      <td><%= m.address %></td>
+      <td><%= m.inscription %></td>
+      <td><%= m.weekday %></td>
+    </tr>
+  <% end %>
+  </table>
 </div>
