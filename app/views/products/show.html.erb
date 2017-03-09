@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fit-header">
   <div class= "row">
     <div class="col-md-9">
       <img class="img-responsive" src="http://placehold.it/750x400" class="img-thumbnail" >
@@ -7,7 +7,7 @@
       <div class="col-md-3 col-sm-3">
         <h2><%= @product.name %></h2>
         <h3>R$ <%= @product.price %></h3>
-        <p>Quantidade</p>
+        <p>Preço por Kg</p>
         <button type="button" class="btn btn-sucess">Adicionar a cesta</button>
       </div>
     </div>
@@ -16,11 +16,6 @@
     <div class="col-md-12">
       <div class="tag-list">
         <span><%= @product.category=%></span>
-        <% if @product.organic? %>
-          <span>Orgânico</span>
-        <% else %>
-          <span>Comum</span>
-        <% end %>
         <span>Validade 3 dias</span>
       </div>
     </div>
