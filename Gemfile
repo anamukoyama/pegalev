@@ -31,6 +31,8 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 gem "geocoder"
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
