@@ -6,6 +6,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -14,8 +15,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to product_path(@product)
+    if @product.save
+      flash[:notice] = "Produto adicionado com sucesso"
+      redirect_to product_path(@product)
+    else
+        render :new
+    end
   end
 
   def edit
@@ -33,11 +38,11 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def product_params
-    params.require(:product).permit(:name, :price, :category, :organic)
+  def set_product
+    @product = Product.find(params[:id])
   end
 
-   def set_product
-    @product = Product.find(params[:id])
+  def product_params
+    params.require(:product).permit(:name, :price, :category, :best_before, :photo, :photo_cache)
   end
 end

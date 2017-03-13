@@ -1,0 +1,31 @@
+pt-BR:
+  simple_form:
+    "sim": 'Sim'
+    "não": 'Não'
+    required:
+      text: 'campo obrigatório'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Por favor verique os seguintes problemas:"
+    # Examples
+    labels:
+      defaults:
+        password: 'Senha'
+      user:
+        new:
+          email: 'E-mail de acesso'
+        edit:
+          email: 'E-mail'
+    hints:
+      defaults:
+        username: 'Apelido de acesso'
+        password: 'Sem caracteres especiais, por favor.'
+    include_blanks:
+      defaults:
+        age: 'Prefiro não dizer'
+    prompts:
+      defaults:
+        age: 'Selecione a sua idade'
