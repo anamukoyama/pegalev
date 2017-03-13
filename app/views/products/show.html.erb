@@ -1,7 +1,7 @@
 <div class="container fit-header">
   <div class= "row">
     <div class="col-md-9">
-      <img class="img-responsive" src="http://placehold.it/750x400" class="img-thumbnail" >
+      <%= render 'product_photo' %>
     </div>
     <div class="product-details">
       <div class="col-md-3 col-sm-3">
@@ -16,7 +16,7 @@
     <div class="col-md-12">
       <div class="tag-list">
         <span><%= @product.category=%></span>
-        <span>Validade 3 dias</span>
+        <span>Dura até <%= @product.best_before == 1 ? " #{@product.best_before} dia" : " #{@product.best_before} dias" %> na geladeira</span>
       </div>
     </div>
   </div>

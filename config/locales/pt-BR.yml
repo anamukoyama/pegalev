@@ -55,6 +55,8 @@ pt-BR:
         name: Nome
         category: Categoria
         price: Preço
+        photo: Imagem
+        best_before: Validade na geladeira
       order:
         amount: total
       order_item:
