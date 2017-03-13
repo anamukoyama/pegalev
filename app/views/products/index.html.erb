@@ -16,7 +16,7 @@
             <div class="card-price">
               <h3> R$ <%= product.price %> </h3>
             </div>
-            <a class="card-link" href="/"> </a>
+            <%=link_to raw('<span>' + product.name + '</span>'), product_path(product), class: 'card-link' %>
           </div>
         </div>
       <% else %>
@@ -28,11 +28,10 @@
             <div class="card-price">
               <h3> R$ <%= product.price %> </h3>
             </div>
-            <a class="card-link" href="/"> </a>
+            <%=link_to raw('<span>' + product.name + '</span>'), product_path(product), class: 'card-link' %>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-

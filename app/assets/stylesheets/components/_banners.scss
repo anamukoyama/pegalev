@@ -43,3 +43,12 @@
     margin-bottom: 50px;
   }
 }
+
+.top-banner{
+  background-image: linear-gradient(90deg, #EF2D56 0%, #F45C43 75%), url('http://placehold.it/1280x720');
+  background-size: cover;
+  text-align: center;
+  h1,h3 {
+  color: #fff;
+  }
+}

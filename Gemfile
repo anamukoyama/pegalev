@@ -33,6 +33,7 @@ gem "autoprefixer-rails"
 gem "geocoder"
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
 
