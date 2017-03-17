@@ -1,18 +1,24 @@
 pt-BR:
   products:
     index:
-      title: "Entrega de frutas, legumes e verduras orgânicas UHUHUH"
-      sub: "A feira todo dia na sua rua UHUHU"
+      title: Entrega de frutas, legumes e verduras orgânicas
+      sub: A feira todo dia na sua rua
     new:
-      title: "Adicionar uma nova fruta, legume ou verdura"
+      title: Adicionar uma nova fruta, legume ou verdura
     edit:
-      title: "Editar uma nova fruta, legume ou verdura"
+      title: Editar uma nova fruta, legume ou verdura
     show:
-      price_set_by: "Preço por"
-      cta: "Adicionar a cesta"
+      price_set_by: Preço por
+      cta: Adicionar a cesta
       buy_more: "Que tal levar também:"
     _product_form:
       product_example: "Ex: Morango"
+  shared:
+    header:
+      sign_in: Entrar
+      sign_out: Sair
+      im_a_farmer: Sou Feirante
+      overview: Minhas Barracas
   activerecord:
     attributes:
       user:
