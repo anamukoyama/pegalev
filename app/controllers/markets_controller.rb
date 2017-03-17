@@ -2,7 +2,15 @@ class MarketsController < ApplicationController
   before_action :set_market, only: [:show]
 
   def index
-    @markets = Market.all
+    # @markets = Market.all
+
+    @markets = Market.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
+      marker.lat market.latitude
+      marker.lng market.longitude
+    end
+
   end
 
   def show
