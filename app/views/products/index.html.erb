@@ -8,7 +8,11 @@
   <div class="container">
     <% @products.each do |product| %>
       <div class="col-md-4 col-sm-12">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(http://placehold.it/350x175);">
+        <% if product.photo? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo %>);">
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(http://placehold.it/350x175);">
+        <% end %>
           <div class="card-name">
             <h2> <%= product.name %> </h2>
           </div>
