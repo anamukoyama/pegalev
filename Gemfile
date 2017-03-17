@@ -31,6 +31,10 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 gem "geocoder"
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
