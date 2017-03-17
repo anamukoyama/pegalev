@@ -6,12 +6,6 @@
     </div>
     <div class="col-xs-6">
       <table class="table">
-      <tr>
-        <th>Nome</th>
-        <th>Endereço</th>
-        <th>Matrícula</th>
-        <th colspan="2">Dia na semana</th>
-      </tr>
       <% @markets.each do |m| %>
         <tr>
           <td><a class="point_map" data-latitude="<%= m.latitude %>" data-longitude="<%= m.longitude %>"><%= m.name %></a></td>

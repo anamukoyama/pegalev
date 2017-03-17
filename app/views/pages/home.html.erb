@@ -2,12 +2,14 @@
   <div class="banner-content">
     <!-- <h1>Digite seu CEP</h1> -->
     <div class="banner-content-form">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Digite seu cep">
-        <span class="input-group-btn">
-          <button class="btn btn-primary" type="button">Buscar</button>
-        </span>
-      </div>
+      <form action="/search">
+        <div class="input-group">
+            <input type="text" name="search_by_cep" class="form-control" placeholder="Digite seu cep">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Buscar</button>
+            </span>
+        </div>
+      </form>
       <%= link_to "Não sei meu cep", "#", class: "banner-content-small text-left" %>
     </div>
   </div>
