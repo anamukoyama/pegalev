@@ -32,9 +32,12 @@ gem "simple_form"
 gem "autoprefixer-rails"
 gem "geocoder"
 gem "gmaps4rails"
-source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
-end
+gem "rails-assets-underscore"
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.0'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
