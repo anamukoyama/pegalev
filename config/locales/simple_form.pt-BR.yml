@@ -14,11 +14,13 @@ pt-BR:
     labels:
       defaults:
         password: 'Senha'
+        remember_me: 'Mantenha-me conectado'
+        password_confirmation: 'Confirme sua senha'
       user:
         new:
-          email: 'E-mail de acesso'
+          email: 'Email'
         edit:
-          email: 'E-mail'
+          email: 'Email'
     hints:
       defaults:
         username: 'Apelido de acesso'
