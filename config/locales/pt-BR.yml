@@ -1,4 +1,11 @@
 pt-BR:
+  overview:
+    index:
+      title: Minhas Barracas
+      sub: Aqui ficam seus pedidos, suas mercadorias e as feiras que você faz parte
+      farmer_products: Minhas Mercadorias
+      farmer_stalls: Feiras onde eu tenho barraca
+      add: Adicionar
   products:
     index:
       title: Entrega de frutas, legumes e verduras orgânicas
