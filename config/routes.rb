@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :markets
 
   # only for farmer control
+  get '/search', to: 'markets#search'
   get 'overview', to: "overview#index"
 end
 
