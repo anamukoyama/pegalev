@@ -11,15 +11,25 @@
       <div class="col-xs-6">
         <nav class="top-menu">
           <ul>
-            <li>
-              <%= link_to "Overview", overview_path %>
-            </li>
-            <li>
-              <%= link_to "Sou feirante", farmer_session_path %>
-            </li>
-            <li>
-              <%= link_to "Entrar", user_session_path %>
-            </li>
+            <% if farmer_signed_in? %>
+              <li>
+                <%= link_to t(".overview"), overview_path %>
+              </li>
+              <li>
+              <%= link_to(t(".sign_out"), destroy_farmer_session_path, :method => :delete) %>
+              </li>
+            <% elsif user_signed_in? %>
+              <li>
+                <%= link_to(t(".sign_out"), destroy_user_session_path, :method => :delete) %>
+              </li>
+            <% else %>
+              <li>
+              <%= link_to(t(".im_a_farmer"), new_farmer_session_path)  %>
+              </li>
+              <li>
+              <%= link_to(t(".sign_in"), new_user_session_path)  %>
+              </li>
+            <% end %>
           </ul>
         </nav>
       </div>
