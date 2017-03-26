@@ -5,11 +5,18 @@
   </div>
   <div class="farmer_products">
     <h3><%=t('.farmer_products')%></h3>
-    <button class="btn btn-primary" type="button"><%=t('.add')%></button>
+    <%= button_to t('.add'), products_path, method: "get", class: 'btn btn-primary' %>
   </div>
   <div class="farmer_stalls">
     <h3><%=t('.farmer_stalls')%></h3>
-    <button class="btn btn-primary" type="button"><%=t('.add')%></button>
+    <%= button_to t('.add'), markets_path, method: "get", class: 'btn btn-primary' %>
+    <div class="col-sm-6 col-md-3">
+      <div class="stalls">
+        <span><i class="fa fa-university"></i> </span>
+        <span><i class="fa fa-university"> </i></span>
+        <span><i class="fa fa-university"> </i></span>
+      </div>
+    </div>
   </div>
 </div>
 
