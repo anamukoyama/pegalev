@@ -3,9 +3,14 @@ pt-BR:
     index:
       title: Minhas Barracas
       sub: Aqui ficam listados seus pedidos, suas mercadorias e as feiras que você faz parte
+      farmer_orders: Meus pedidos
       farmer_products: Minhas Mercadorias
       farmer_stalls: Feiras onde eu tenho barraca
       add: Adicionar
+      delivered: Feito a entrega
+      list: Lista da ANA
+      market: Feira da VILA PALMEIRA na TERÇA
+      delivery_time: Horário de entrega entre 9 e 11h na TERÇA
   products:
     index:
       title: Entrega de frutas, legumes e verduras orgânicas
