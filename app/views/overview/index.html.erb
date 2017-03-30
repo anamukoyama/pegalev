@@ -1,38 +1,30 @@
 <div class="container fit-header">
   <h1><%=t('.title')%></h1>
   <h5><%=t('.sub')%> </h5>
-  <div class="farmer_orders">
-    <h3><%=t('.farmer_orders')%></h3>
-    <div class="order-card">
-      <h2> Lista da ANA </h2>
-      <input type="checkbox" value="">Feito a entrega</label>
-      <p> 1kg de Banana, 2 bandejas de Morango, 1KG de Laranja Lima</p>
-      <h3> Feira da VILA PALMEIRAS na TERÇA </h3>
-      <h4>Horário de entrega entre 9 e 11h na TERÇA</h4>
-    </div>
-    <div class="order-card">
-      <h2> Lista da Eliana </h2>
-      <input type="checkbox" value="">Feito a entrega</label>
-      <p> 1kg de Maça e 1 pé de Brócolis </p>
-      <h3> Feira do JARAGUA no DOMINGO </h3>
-      <h4>Horário de entrega entre 11 e 13h no DOMINGO</h4>
-    </div>
-  </div>
-
-  <div class="farmer_products">
-    <h3><%=t('.farmer_products')%></h3>
-    <%= button_to t('.add'), products_path, method: "get", class: 'btn btn-primary' %>
-  </div>
-  <div class="farmer_stalls">
-    <h3><%=t('.farmer_stalls')%></h3>
-    <%= button_to t('.add'), markets_path, method: "get", class: 'btn btn-primary' %>
-    <div class="col-sm-6 col-md-3">
-      <div class="stalls">
-        <span><i class="fa fa-university"></i> </span>
-        <span><i class="fa fa-university"> </i></span>
-        <span><i class="fa fa-university"> </i></span>
+  <div class="row">
+    <div class="wrapper-dashboard">
+      <div class="content">
+        <div class="col-md-3 col-xs-12">
+          <%= render 'sidebar' %>
+        </div>
+      </div>
+      <div class="col-md-9 col-xs-12">
+        <h3><%=t('.tips_sold_more')%></h3>
+        <p> As pessoas próximas a feira VILA PALMEIRAS querem comprar:</p>
+        <ul>
+          <li> Caqui </li>
+          <li> Atemoia </li>
+        </ul>
+        <p> Nenhum feirante na região oferece essas mercadorias, que tal começar a vendê-las também?</p>
+        <h3><%=t('.most_sold')%></h3>
+        <ul>
+          <li> Banana 15KG</li>
+          <li> Laranja Lima 18KG</li>
+        </ul>
+        <p> Procure o melhor preço nestas mercadorias ou faça estoques maiores, elas são seu carro-chefe!</p>
+        <h3><%=t('.total_amount')%></h3>
+        <p>Você já entregou 20 pedidos com a PegaLev e faturou R$1000! Incrível</p>
       </div>
     </div>
   </div>
 </div>
-

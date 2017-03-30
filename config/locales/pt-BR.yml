@@ -3,6 +3,9 @@ pt-BR:
     index:
       title: Minhas Barracas
       sub: Aqui ficam listados seus pedidos, suas mercadorias e as feiras que você faz parte
+      tips_sold_more: Dicas para vender mais
+      most_sold: Mercadorias mais vendidas
+      total_amount: Você vendeu pra caramba!
       farmer_orders: Meus pedidos
       farmer_products: Minhas Mercadorias
       farmer_stalls: Feiras onde eu tenho barraca
