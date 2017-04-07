@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :farmers
 
+
   resources :products
   resources :markets
+  resources :stalls, only: [:index, :create, :new, :destroy]
 
   # only for farmer control
   get '/search', to: 'markets#search'
   get 'overview', to: "overview#index"
+  get "/my_orders", to: 'pages#my_orders'
+  get "/my_products", to: 'pages#my_products'
+  get "/my_stalls", to: 'pages#my_stalls'
 end
 
 # Nossas routes apenas para conferência
@@ -61,4 +66,12 @@ end
 #                           PATCH  /markets/:id(.:format)           markets#update
 #                           PUT    /markets/:id(.:format)           markets#update
 #                           DELETE /markets/:id(.:format)           markets#destroy
+#                   stalls GET    /stalls(.:format)                stalls#index
+#                           POST   /stalls(.:format)                stalls#create
+#                 new_stall GET    /stalls/new(.:format)            stalls#new
+#                           DELETE /stalls/:id(.:format)            stalls#destroy
+#                    search GET    /search(.:format)                markets#search
 #                  overview GET    /overview(.:format)              overview#index
+#                 my_orders GET    /my_orders(.:format)             pages#my_orders
+#               my_products GET    /my_products(.:format)           pages#my_products
+#                 my_stalls GET    /my_stalls(.:format)             pages#my_stalls

@@ -32,8 +32,17 @@ pt-BR:
     header:
       sign_in: Entrar
       sign_out: Sair
+      profile: Minha conta
       im_a_farmer: Sou Feirante
       overview: Minhas Barracas
+  pages:
+    my_orders:
+      farmer_orders: Meus pedidos
+    my_products:
+      farmer_products: Minhas Mercadorias
+      add: Adicionar
+    my_stalls:
+      farmer_stalls: Feiras onde eu tenho barraca
   activerecord:
     attributes:
       user:
