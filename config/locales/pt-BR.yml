@@ -2,10 +2,18 @@ pt-BR:
   overview:
     index:
       title: Minhas Barracas
-      sub: Aqui ficam seus pedidos, suas mercadorias e as feiras que você faz parte
+      sub: Aqui ficam listados seus pedidos, suas mercadorias e as feiras que você faz parte
+      tips_sold_more: Dicas para vender mais
+      most_sold: Mercadorias mais vendidas
+      total_amount: Você vendeu pra caramba!
+      farmer_orders: Meus pedidos
       farmer_products: Minhas Mercadorias
       farmer_stalls: Feiras onde eu tenho barraca
       add: Adicionar
+      delivered: Feito a entrega
+      list: Lista da ANA
+      market: Feira da VILA PALMEIRA na TERÇA
+      delivery_time: Horário de entrega entre 9 e 11h na TERÇA
   products:
     index:
       title: Entrega de frutas, legumes e verduras orgânicas
@@ -24,8 +32,17 @@ pt-BR:
     header:
       sign_in: Entrar
       sign_out: Sair
+      profile: Minha conta
       im_a_farmer: Sou Feirante
       overview: Minhas Barracas
+  pages:
+    my_orders:
+      farmer_orders: Meus pedidos
+    my_products:
+      farmer_products: Minhas Mercadorias
+      add: Adicionar
+    my_stalls:
+      farmer_stalls: Feiras onde eu tenho barraca
   activerecord:
     attributes:
       user:

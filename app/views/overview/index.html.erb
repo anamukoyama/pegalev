@@ -1,15 +1,30 @@
 <div class="container fit-header">
   <h1><%=t('.title')%></h1>
   <h5><%=t('.sub')%> </h5>
-  <div class="farmer_orders">
-  </div>
-  <div class="farmer_products">
-    <h3><%=t('.farmer_products')%></h3>
-    <button class="btn btn-primary" type="button"><%=t('.add')%></button>
-  </div>
-  <div class="farmer_stalls">
-    <h3><%=t('.farmer_stalls')%></h3>
-    <button class="btn btn-primary" type="button"><%=t('.add')%></button>
+  <div class="row">
+    <div class="wrapper-dashboard">
+      <div class="content">
+        <div class="col-md-3 col-xs-12">
+          <%= render 'sidebar' %>
+        </div>
+      </div>
+      <div class="col-md-9 col-xs-12">
+        <h3><%=t('.tips_sold_more')%></h3>
+        <p> As pessoas próximas a feira VILA PALMEIRAS querem comprar:</p>
+        <ul>
+          <li> Caqui </li>
+          <li> Atemoia </li>
+        </ul>
+        <p> Nenhum feirante na região oferece essas mercadorias, que tal começar a vendê-las também?</p>
+        <h3><%=t('.most_sold')%></h3>
+        <ul>
+          <li> Banana 15KG</li>
+          <li> Laranja Lima 18KG</li>
+        </ul>
+        <p> Procure o melhor preço nestas mercadorias ou faça estoques maiores, elas são seu carro-chefe!</p>
+        <h3><%=t('.total_amount')%></h3>
+        <p>Você já entregou 20 pedidos com a PegaLev e faturou R$1000! Incrível</p>
+      </div>
+    </div>
   </div>
 </div>
-
