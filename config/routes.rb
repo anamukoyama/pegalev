@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   # only for seller control
   get '/search', to: 'markets#search'
   get 'overview', to: "overview#index"
-  get "/my_orders", to: 'pages#my_orders'
-  get "/my_products", to: 'pages#my_products'
-  get "/my_stalls", to: 'pages#my_stalls'
+  get "/my_orders", to: 'overview#my_orders'
+  get "/my_products", to: 'overview#my_products'
+  get "/my_stalls", to: 'overview#my_stalls'
 end
 
 # Nossas routes apenas para conferência

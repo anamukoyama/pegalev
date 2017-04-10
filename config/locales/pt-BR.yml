@@ -14,6 +14,13 @@ pt-BR:
       list: Lista da ANA
       market: Feira da VILA PALMEIRA na TERÇA
       delivery_time: Horário de entrega entre 9 e 11h na TERÇA
+    my_orders:
+      seller_orders: Meus pedidos
+    my_products:
+      seller_products: Minhas Mercadorias
+      add: Adicionar
+    my_stalls:
+      seller_stalls: Feiras onde eu tenho barraca
   products:
     index:
       title: Entrega de frutas, legumes e verduras orgânicas
@@ -36,13 +43,7 @@ pt-BR:
       im_a_seller: Sou Feirante
       overview: Minhas Barracas
   pages:
-    my_orders:
-      seller_orders: Meus pedidos
-    my_products:
-      seller_products: Minhas Mercadorias
-      add: Adicionar
-    my_stalls:
-      seller_stalls: Feiras onde eu tenho barraca
+
   activerecord:
     attributes:
       user:
