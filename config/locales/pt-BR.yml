@@ -65,7 +65,10 @@ pt-BR:
         name: Nome
         mobile: Celular
         address: Endereço
+        complement: Complemento
+        number: Número
         city: Cidade
+        state: Estado
         zipcode: CEP
       farmer:
         name: Nome
