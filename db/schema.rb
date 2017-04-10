@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410130042) do
+ActiveRecord::Schema.define(version: 20170410132246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20170410130042) do
     t.string   "box"
     t.boolean  "organic"
     t.decimal  "price"
-    t.integer  "farmer_id"
-    t.index ["farmer_id"], name: "index_seller_products_on_farmer_id", using: :btree
+    t.integer  "seller_id"
     t.index ["product_id"], name: "index_seller_products_on_product_id", using: :btree
+    t.index ["seller_id"], name: "index_seller_products_on_seller_id", using: :btree
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -95,12 +95,12 @@ ActiveRecord::Schema.define(version: 20170410130042) do
   end
 
   create_table "stalls", force: :cascade do |t|
-    t.integer  "farmer_id"
+    t.integer  "seller_id"
     t.integer  "market_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["farmer_id"], name: "index_stalls_on_farmer_id", using: :btree
     t.index ["market_id"], name: "index_stalls_on_market_id", using: :btree
+    t.index ["seller_id"], name: "index_stalls_on_seller_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -134,5 +134,5 @@ ActiveRecord::Schema.define(version: 20170410130042) do
   add_foreign_key "orders", "users"
   add_foreign_key "seller_products", "products"
   add_foreign_key "stalls", "markets"
-  add_foreign_key "stalls", "sellers", column: "farmer_id"
+  add_foreign_key "stalls", "sellers"
 end

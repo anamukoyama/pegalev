@@ -6,9 +6,9 @@ pt-BR:
       tips_sold_more: Dicas para vender mais
       most_sold: Mercadorias mais vendidas
       total_amount: Você vendeu pra caramba!
-      farmer_orders: Meus pedidos
-      farmer_products: Minhas Mercadorias
-      farmer_stalls: Feiras onde eu tenho barraca
+      seller_orders: Meus pedidos
+      seller_products: Minhas Mercadorias
+      seller_stalls: Feiras onde eu tenho barraca
       add: Adicionar
       delivered: Feito a entrega
       list: Lista da ANA
@@ -33,16 +33,16 @@ pt-BR:
       sign_in: Entrar
       sign_out: Sair
       profile: Minha conta
-      im_a_farmer: Sou Feirante
+      im_a_seller: Sou Feirante
       overview: Minhas Barracas
   pages:
     my_orders:
-      farmer_orders: Meus pedidos
+      seller_orders: Meus pedidos
     my_products:
-      farmer_products: Minhas Mercadorias
+      seller_products: Minhas Mercadorias
       add: Adicionar
     my_stalls:
-      farmer_stalls: Feiras onde eu tenho barraca
+      seller_stalls: Feiras onde eu tenho barraca
   activerecord:
     attributes:
       user:
@@ -53,7 +53,7 @@ pt-BR:
         remember_me: Mantenha-me conectado
     models:
       user: Usuário
-      farmer: Feirante
+      seller: Feirante
       market: Feira
       stall: Barraca
       stall_product: Produtos da Barraca
@@ -70,7 +70,7 @@ pt-BR:
         city: Cidade
         state: Estado
         zipcode: CEP
-      farmer:
+      seller:
         name: Nome
         mobile: Celular
         address: Endereço
@@ -201,7 +201,7 @@ pt-BR:
 
   helpers:
     submit:
-      farmer:
+      seller:
         create: "Criar %{model}"
         update: "Atualizar %{model}"
       order:
