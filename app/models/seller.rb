@@ -1,4 +1,4 @@
-class Farmer < ApplicationRecord
+class Seller < ApplicationRecord
   has_many :stalls
   has_many :markets, through: :stalls
   devise :database_authenticatable, :registerable,

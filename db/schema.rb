@@ -10,48 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407200805) do
+ActiveRecord::Schema.define(version: 20170410132246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "farmer_products", force: :cascade do |t|
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "unity_type"
-    t.string   "box"
-    t.boolean  "organic"
-    t.decimal  "price"
-    t.integer  "farmer_id"
-    t.index ["farmer_id"], name: "index_farmer_products_on_farmer_id", using: :btree
-    t.index ["product_id"], name: "index_farmer_products_on_product_id", using: :btree
-  end
-
-  create_table "farmers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "name"
-    t.string   "mobile"
-    t.string   "address"
-    t.string   "zipcode"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "number"
-    t.string   "complement"
-    t.index ["email"], name: "index_farmers_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_farmers_on_reset_password_token", unique: true, using: :btree
-  end
 
   create_table "markets", force: :cascade do |t|
     t.string   "address"
@@ -94,13 +56,51 @@ ActiveRecord::Schema.define(version: 20170407200805) do
     t.integer  "best_before", default: 1
   end
 
+  create_table "seller_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "unity_type"
+    t.string   "box"
+    t.boolean  "organic"
+    t.decimal  "price"
+    t.integer  "seller_id"
+    t.index ["product_id"], name: "index_seller_products_on_product_id", using: :btree
+    t.index ["seller_id"], name: "index_seller_products_on_seller_id", using: :btree
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "mobile"
+    t.string   "address"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "number"
+    t.string   "complement"
+    t.index ["email"], name: "index_sellers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
+  end
+
   create_table "stalls", force: :cascade do |t|
-    t.integer  "farmer_id"
+    t.integer  "seller_id"
     t.integer  "market_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["farmer_id"], name: "index_stalls_on_farmer_id", using: :btree
     t.index ["market_id"], name: "index_stalls_on_market_id", using: :btree
+    t.index ["seller_id"], name: "index_stalls_on_seller_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,11 +128,11 @@ ActiveRecord::Schema.define(version: 20170407200805) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "farmer_products", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "stalls"
   add_foreign_key "orders", "users"
-  add_foreign_key "stalls", "farmers"
+  add_foreign_key "seller_products", "products"
   add_foreign_key "stalls", "markets"
+  add_foreign_key "stalls", "sellers"
 end

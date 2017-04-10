@@ -7,7 +7,7 @@
   </div>
   <div class="navbar-pegalev-menu">
     <div class="dropdown">
-      <% if farmer_signed_in? %>
+      <% if seller_signed_in? %>
         <% avatar_url = "default_avatar.png" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -15,27 +15,27 @@
             <%= link_to t(".overview"), overview_path %>
           </li>
           <li>
-            <%= link_to t('.orders'), farmer_orders_path do %>
+            <%= link_to t('.orders'), seller_orders_path do %>
               <i class="fa fa-cubes" aria-hidden="true"></i>
             <% end %>
           </li>
           <li>
-            <%= link_to "/farmer_products" do %>
-              <i class="fa fa-leaf" aria-hidden="true"></i><%= t('.farmer_products')%>
+            <%= link_to "/seller_products" do %>
+              <i class="fa fa-leaf" aria-hidden="true"></i><%= t('.seller_products')%>
             <% end %>
           </li>
           <li>
-            <%= link_to "/farmer_stalls" do %>
-              <i class="fa fa-truck" aria-hidden="true"></i><%=t('.farmer_stalls')%>
+            <%= link_to "/seller_stalls" do %>
+              <i class="fa fa-truck" aria-hidden="true"></i><%=t('.seller_stalls')%>
             <% end %>
           </li>
           <li>
-            <%= link_to farmer_path(current_farmer) do %>
+            <%= link_to seller_path(current_seller) do %>
               <i class="fa fa-user"></i> <%=t('.profile')%>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_farmer_session_path, method: :delete do %>
+            <%= link_to destroy_seller_session_path, method: :delete do %>
                <i class="fa fa-sign-out"></i> <%= t(".sign_out") %>
             <% end %>
           </li>
@@ -63,7 +63,7 @@
       <% else %>
         <ul>
           <li>
-            <%= link_to(t(".im_a_farmer"), new_farmer_session_path)  %>
+            <%= link_to(t(".im_a_seller"), new_seller_session_path)  %>
           </li>
           <li>
             <%= link_to(t(".sign_in"), new_user_session_path) %>

@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users
-  devise_for :farmers
+  devise_for :sellers
 
 
   resources :products
   resources :markets
   resources :stalls, only: [:index, :create, :new, :destroy]
 
-  # only for farmer control
+  # only for seller control
   get '/search', to: 'markets#search'
   get 'overview', to: "overview#index"
   get "/my_orders", to: 'pages#my_orders'
@@ -19,21 +19,21 @@ end
 
 # Nossas routes apenas para conferência
 #                    Prefix Verb   URI Pattern                      Controller#Action
-#        new_farmer_session GET    /farmers/sign_in(.:format)       devise/sessions#new
-#            farmer_session POST   /farmers/sign_in(.:format)       devise/sessions#create
-#    destroy_farmer_session DELETE /farmers/sign_out(.:format)      devise/sessions#destroy
-#       new_farmer_password GET    /farmers/password/new(.:format)  devise/passwords#new
-#      edit_farmer_password GET    /farmers/password/edit(.:format) devise/passwords#edit
-#           farmer_password PATCH  /farmers/password(.:format)      devise/passwords#update
-#                           PUT    /farmers/password(.:format)      devise/passwords#update
-#                           POST   /farmers/password(.:format)      devise/passwords#create
-#cancel_farmer_registration GET    /farmers/cancel(.:format)        devise/registrations#cancel
-#   new_farmer_registration GET    /farmers/sign_up(.:format)       devise/registrations#new
-#  edit_farmer_registration GET    /farmers/edit(.:format)          devise/registrations#edit
-#       farmer_registration PATCH  /farmers(.:format)               devise/registrations#update
-#                           PUT    /farmers(.:format)               devise/registrations#update
-#                           DELETE /farmers(.:format)               devise/registrations#destroy
-#                           POST   /farmers(.:format)               devise/registrations#create
+#        new_seller_session GET    /sellers/sign_in(.:format)       devise/sessions#new
+#            seller_session POST   /sellers/sign_in(.:format)       devise/sessions#create
+#    destroy_seller_session DELETE /sellers/sign_out(.:format)      devise/sessions#destroy
+#       new_seller_password GET    /sellers/password/new(.:format)  devise/passwords#new
+#      edit_seller_password GET    /sellers/password/edit(.:format) devise/passwords#edit
+#           seller_password PATCH  /sellers/password(.:format)      devise/passwords#update
+#                           PUT    /sellers/password(.:format)      devise/passwords#update
+#                           POST   /sellers/password(.:format)      devise/passwords#create
+#cancel_seller_registration GET    /sellers/cancel(.:format)        devise/registrations#cancel
+#   new_seller_registration GET    /sellers/sign_up(.:format)       devise/registrations#new
+#  edit_seller_registration GET    /sellers/edit(.:format)          devise/registrations#edit
+#       seller_registration PATCH  /sellers(.:format)               devise/registrations#update
+#                           PUT    /sellers(.:format)               devise/registrations#update
+#                           DELETE /sellers(.:format)               devise/registrations#destroy
+#                           POST   /sellers(.:format)               devise/registrations#create
 #          new_user_session GET    /users/sign_in(.:format)         devise/sessions#new
 #              user_session POST   /users/sign_in(.:format)         devise/sessions#create
 #      destroy_user_session DELETE /users/sign_out(.:format)        devise/sessions#destroy

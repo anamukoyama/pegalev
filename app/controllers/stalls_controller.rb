@@ -1,5 +1,5 @@
 class StallsController < ApplicationController
-  skip_before_action :authenticate_farmer!
+  skip_before_action :authenticate_seller!
   def index
     @stalls = Stall.all
   end
