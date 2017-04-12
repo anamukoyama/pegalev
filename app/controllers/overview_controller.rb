@@ -7,11 +7,39 @@ class OverviewController < ApplicationController
   end
 
   def my_products
-   @my_products = current_seller.seller_products
-   @products = Product.all
+   @add_product = SellerProduct.new
+   @my_products = current_seller.products
+   @products = remain_to_add(Product.all)
+  end
+
+  def create_products
+    product = Product.find(product_params['product_id'])
+    @product = SellerProduct.new(seller_id: current_seller.id, product_id: product.id, price: product.price.to_i)
+    if @product.save
+      flash[:notice] = "Um novo produto foi adicionado"
+      redirect_to my_products_path
+    else
+      render :new
+    end
   end
 
   def my_stalls
   #  @my_stalls = current_seller.markets
+  end
+
+  private
+
+  def remain_to_add(all)
+    products = all.select do |p|
+      if current_seller.products.include?(p)
+        p = nil
+      else
+        p = p
+      end
+    end
+  end
+
+  def product_params
+    params.require(:seller_product).permit(:product_id)
   end
 end

@@ -17,8 +17,13 @@ pt-BR:
     my_orders:
       seller_orders: Meus pedidos
     my_products:
+      name: Nome
+      category: Categoria
+      price: Preço
+      products: Produtos
       seller_products: Minhas Mercadorias
       add: Adicionar
+      add_info: Adicione mais produtos que você deseja vender
     my_stalls:
       seller_stalls: Feiras onde eu tenho barraca
   products:
