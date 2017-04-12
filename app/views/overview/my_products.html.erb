@@ -5,7 +5,31 @@
   <div class="col-md-9 col-xs-12">
     <div class="seller_products">
       <h3><%=t('.seller_products')%></h3>
-      <%= button_to t('.add'), products_path, method: "get", class: 'btn btn-primary' %>
+      <br><br>
+      <table>
+        <tr>
+          <th><%=t('.name')%></th>
+          <th><%=t('.category')%></th>
+          <th><%=t('.price')%></th>
+        </tr>
+      <% @my_products.each do |p| %>
+        <tr>
+          <td><%= p.name %></td>
+          <td><%= p.category %></td>
+          <td><%= p.price %></td>
+        </tr>
+      <% end %>
+      </table>
+      <br><br>
+      <p><h3><%= t('.add_info')%></h3></p>
+      <br>
+      <%= simple_form_for @add_product,
+          :url => url_for(:action => 'create_products'),
+          :method => 'post'  do |f| %>
+        <%#= f.input :product_id, collection: @products %>
+        <%= f.input :product_id, collection: @products, label: t('.products') %>
+        <%= f.button :submit, t('.add'), class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
