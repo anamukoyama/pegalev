@@ -17,6 +17,12 @@
           <td><%= p.name %></td>
           <td><%= p.category %></td>
           <td><%= p.price %></td>
+
+          <td>
+            <%= link_to destroy_product_path(p,seller_product: {product_id: p.id }), method: :delete  do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
       </table>
@@ -24,7 +30,7 @@
       <p><h3><%= t('.add_info')%></h3></p>
       <br>
       <%= simple_form_for @add_product,
-          :url => url_for(:action => 'create_products'),
+          :url => url_for(:action => 'create_product'),
           :method => 'post'  do |f| %>
         <%#= f.input :product_id, collection: @products %>
         <%= f.input :product_id, collection: @products, label: t('.products') %>

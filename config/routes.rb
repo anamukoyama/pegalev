@@ -4,17 +4,19 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :sellers
 
-
   resources :products
   resources :markets
   resources :stalls, only: [:index, :create, :new, :destroy]
 
-  # only for seller control
   get '/search', to: 'markets#search'
-  get 'overview', to: "overview#index"
+
+  # only for seller control
+
+  get '/overview', to: "overview#index"
   get "/my_orders", to: 'overview#my_orders'
   get "/my_products", to: 'overview#my_products'
-  post "/create_products", to: 'overview#create_products'
+  post "/create_product", to: 'overview#create_product'
+  delete "/destroy_product", to: 'overview#destroy_product'
   get "/my_stalls", to: 'overview#my_stalls'
 end
 

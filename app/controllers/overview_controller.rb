@@ -12,7 +12,7 @@ class OverviewController < ApplicationController
    @products = remain_to_add(Product.all)
   end
 
-  def create_products
+  def create_product
     product = Product.find(product_params['product_id'])
     @product = SellerProduct.new(seller_id: current_seller.id, product_id: product.id, price: product.price.to_i)
     if @product.save
@@ -21,6 +21,12 @@ class OverviewController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy_product
+    @seller_product_association = SellerProduct.where(product_id: product_params['product_id'].to_i, seller_id: current_seller.id).first
+    @seller_product_association.destroy
+    redirect_to my_products_path
   end
 
   def my_stalls
