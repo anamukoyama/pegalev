@@ -14,10 +14,14 @@ Rails.application.routes.draw do
 
   get '/overview', to: "overview#index"
   get "/my_orders", to: 'overview#my_orders'
+
   get "/my_products", to: 'overview#my_products'
   post "/create_product", to: 'overview#create_product'
   delete "/destroy_product", to: 'overview#destroy_product'
+
   get "/my_stalls", to: 'overview#my_stalls'
+  post "/create_stall", to: 'overview#create_stall'
+  delete "/destroy_stall", to: 'overview#destroy_stall'
 end
 
 =begin
@@ -80,5 +84,7 @@ cancel_seller_registration GET    /sellers/cancel(.:format)        devise/regist
             create_product POST   /create_product(.:format)        overview#create_product
            destroy_product DELETE /destroy_product(.:format)       overview#destroy_product
                  my_stalls GET    /my_stalls(.:format)             overview#my_stalls
+              create_stall POST   /create_stall(.:format)          overview#create_stall
+             destroy_stall DELETE /destroy_stall(.:format)         overview#destroy_stall
 
 =end

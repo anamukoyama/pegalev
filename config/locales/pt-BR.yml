@@ -19,13 +19,20 @@ pt-BR:
     my_products:
       name: Nome
       category: Categoria
-      price: Preço
+      suggested_price: Preço sugerido
       products: Produtos
       seller_products: Minhas Mercadorias
       add: Adicionar
       add_info: Adicione mais produtos que você deseja vender
     my_stalls:
+      name: Nome
+      address: Endereço
+      inscription: Inscrição
+      day: Dia
       seller_stalls: Feiras onde eu tenho barraca
+      add_info: Adicione a feira que você está trabalhando
+      add: Adicionar
+      markets: Feiras
   products:
     index:
       title: Entrega de frutas, legumes e verduras orgânicas

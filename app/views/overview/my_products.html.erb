@@ -6,11 +6,11 @@
     <div class="seller_products">
       <h3><%=t('.seller_products')%></h3>
       <br><br>
-      <table>
+      <table id="my_products">
         <tr>
           <th><%=t('.name')%></th>
           <th><%=t('.category')%></th>
-          <th><%=t('.price')%></th>
+          <th><%=t('.suggested_price')%></th>
         </tr>
       <% @my_products.each do |p| %>
         <tr>
@@ -19,7 +19,7 @@
           <td><%= p.price %></td>
 
           <td>
-            <%= link_to destroy_product_path(p,seller_product: {product_id: p.id }), method: :delete  do %>
+            <%= link_to destroy_product_path(p, seller_product: {product_id: p.id }), method: :delete  do %>
             <i class="fa fa-times" aria-hidden="true"></i>
             <% end %>
           </td>
