@@ -77,7 +77,8 @@ cancel_seller_registration GET    /sellers/cancel(.:format)        devise/regist
                   overview GET    /overview(.:format)              overview#index
                  my_orders GET    /my_orders(.:format)             overview#my_orders
                my_products GET    /my_products(.:format)           overview#my_products
-           create_products GET    /create_products(.:format)       overview#create_products
+            create_product POST   /create_product(.:format)        overview#create_product
+           destroy_product DELETE /destroy_product(.:format)       overview#destroy_product
                  my_stalls GET    /my_stalls(.:format)             overview#my_stalls
 
 =end

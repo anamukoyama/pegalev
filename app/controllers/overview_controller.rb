@@ -24,6 +24,7 @@ class OverviewController < ApplicationController
   end
 
   def destroy_product
+    # deletando associação entre seller e o produto de sua lista
     @seller_product_association = SellerProduct.where(product_id: product_params['product_id'].to_i, seller_id: current_seller.id).first
     @seller_product_association.destroy
     redirect_to my_products_path
