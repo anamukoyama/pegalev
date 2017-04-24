@@ -4,17 +4,19 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :sellers
 
-
   resources :products
   resources :markets
   resources :stalls, only: [:index, :create, :new, :destroy]
 
-  # only for seller control
   get '/search', to: 'markets#search'
-  get 'overview', to: "overview#index"
+
+  # only for seller control
+
+  get '/overview', to: "overview#index"
   get "/my_orders", to: 'overview#my_orders'
   get "/my_products", to: 'overview#my_products'
-  post "/create_products", to: 'overview#create_products'
+  post "/create_product", to: 'overview#create_product'
+  delete "/destroy_product", to: 'overview#destroy_product'
   get "/my_stalls", to: 'overview#my_stalls'
 end
 
@@ -75,7 +77,8 @@ cancel_seller_registration GET    /sellers/cancel(.:format)        devise/regist
                   overview GET    /overview(.:format)              overview#index
                  my_orders GET    /my_orders(.:format)             overview#my_orders
                my_products GET    /my_products(.:format)           overview#my_products
-           create_products GET    /create_products(.:format)       overview#create_products
+            create_product POST   /create_product(.:format)        overview#create_product
+           destroy_product DELETE /destroy_product(.:format)       overview#destroy_product
                  my_stalls GET    /my_stalls(.:format)             overview#my_stalls
 
 =end
