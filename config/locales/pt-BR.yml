@@ -24,6 +24,9 @@ pt-BR:
       seller_products: Minhas Mercadorias
       add: Adicionar
       add_info: Adicione mais produtos que você deseja vender
+      choosed_price: Preço Escolhido
+      change_price: Mudar preço
+      change: Mudar
     my_stalls:
       name: Nome
       address: Endereço
