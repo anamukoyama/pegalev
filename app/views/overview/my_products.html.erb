@@ -18,14 +18,14 @@
         <tr>
           <td><%= p.first.name %></td>
           <td><%= p.first.category %></td>
-          <td><%= number_to_currency(p.first.price, unit: "R$", separator: ",", delimiter: "") %></td>
-          <td><%= number_to_currency(p.last.price, unit: "R$", separator: ",", delimiter: "") %></td>
+          <td><%= number_to_currency(p.first.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></td>
+          <td><%= number_to_currency(p.last.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></td>
           <td><%= simple_form_for @edit_price,
               :url => url_for(:action => 'edit_price'),
               :method => 'get' do |f| %>
               <!-- Este input é necessário para que este dado seja enviado no 'params'-->
               <%= f.input :id, input_html: {value: p.last.id},:as => :hidden %>
-              <%= f.input :price, label:false, :input_html => {:maxlength =>2,:style=> 'width: 60px'} %></td>
+              <%= f.input :price, label:false, :input_html => {value: number_with_precision(f.object.price, precision: 2), :maxlength =>2,:style=> 'width: 80px'} %></td>
           <td><%= f.submit t('.change'), class: "btn btn-primary" %></td>
           <% end %>
           <td>
