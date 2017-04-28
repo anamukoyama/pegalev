@@ -18,8 +18,8 @@
         <tr>
           <td><%= p.first.name %></td>
           <td><%= p.first.category %></td>
-          <td><%= p.first.price %></td>
-          <td><%= p.last.price %></td>
+          <td><%= number_to_currency(p.first.price, unit: "R$", separator: ",", delimiter: "") %></td>
+          <td><%= number_to_currency(p.last.price, unit: "R$", separator: ",", delimiter: "") %></td>
           <td><%= simple_form_for @edit_price,
               :url => url_for(:action => 'edit_price'),
               :method => 'get' do |f| %>
