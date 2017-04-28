@@ -23,6 +23,7 @@
           <td><%= simple_form_for @edit_price,
               :url => url_for(:action => 'edit_price'),
               :method => 'get' do |f| %>
+              <!-- Este input é necessário para que este dado seja enviado no 'params'-->
               <%= f.input :id, input_html: {value: p.last.id},:as => :hidden %>
               <%= f.input :price, label:false, :input_html => {:maxlength =>2,:style=> 'width: 60px'} %></td>
           <td><%= f.submit "Mudar", class: "btn btn-primary" %></td>

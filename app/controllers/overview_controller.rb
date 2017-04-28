@@ -87,6 +87,7 @@ class OverviewController < ApplicationController
     end
   end
 
+  #retorna um array: [seção da tabela products, seção da tabela seller_products]
   def products_prices (products)
     list = []
     products.each do |p|
