@@ -1,4 +1,11 @@
 pt-BR:
+  markets:
+    search:
+      title: Estas são as feiras mais próximas a você
+      sub:  Escolha uma para fazer sua entrega
+      market: "FEIRA "
+      at_address: No Endereço
+      choose_this: Eu quero esta!
   overview:
     index:
       title: Minhas Barracas

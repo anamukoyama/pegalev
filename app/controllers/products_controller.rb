@@ -17,7 +17,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "Produto adicionado com sucesso"
-      redirect_to overview_path
+      redirect_to product_path(@product)
     else
         render :new
     end
