@@ -6,7 +6,7 @@
     <div class="product-details">
       <div class="col-md-3 col-sm-3">
         <h2><%= @product.name %></h2>
-        <h3>R$ <%= @product.price %></h3>
+        <h3><%= number_to_currency(@product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></h3>
         <p><%=t('.price_set_by')%> KG</p>
         <button type="button" class="btn btn-sucess"><%=t('.cta')%></button>
       </div>

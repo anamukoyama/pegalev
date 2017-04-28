@@ -19,7 +19,7 @@ class OverviewController < ApplicationController
 
   def create_product
     product = Product.find(product_params['product_id'])
-    @product = SellerProduct.new(seller_id: current_seller.id, product_id: product.id, price: product.price.to_i)
+    @product = SellerProduct.new(seller_id: current_seller.id, product_id: product.id, price: product.price.to_d)
     if @product.save
       flash[:notice] = "Um novo produto foi adicionado"
       redirect_to my_products_path
@@ -37,7 +37,7 @@ class OverviewController < ApplicationController
 
   def edit_price
     update_section       = SellerProduct.where(id: product_params['id']).first
-    update_section.price = product_params['price'].to_f
+    update_section.price = product_params['price'].to_d # string para decimal
     update_section.save
     redirect_to my_products_path
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424233601) do
+ActiveRecord::Schema.define(version: 20170428195035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,22 +48,22 @@ ActiveRecord::Schema.define(version: 20170424233601) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.string   "price"
     t.string   "category"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "photo"
-    t.integer  "best_before", default: 1
+    t.integer  "best_before",                         default: 1
+    t.decimal  "price",       precision: 8, scale: 2
   end
 
   create_table "seller_products", force: :cascade do |t|
     t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "unity_type"
     t.string   "box"
     t.boolean  "organic"
-    t.float    "price"
+    t.decimal  "price",      precision: 8, scale: 2
     t.integer  "seller_id"
     t.index ["product_id"], name: "index_seller_products_on_product_id", using: :btree
     t.index ["seller_id"], name: "index_seller_products_on_seller_id", using: :btree
