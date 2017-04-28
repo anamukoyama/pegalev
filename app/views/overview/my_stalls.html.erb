@@ -5,6 +5,38 @@
   <div class="col-md-9 col-xs-12">
     <div class="seller_stalls">
       <h3><%=t('.seller_stalls')%></h3>
+      <br><br>
+      <table id="my_stalls">
+        <tr>
+          <th><%=t('.name')%></th>
+          <th><%=t('.address')%></th>
+          <th><%=t('.inscription')%></th>
+          <th><%=t('.day')%></th>
+        </tr>
+      <% @my_stalls.each do |s| %>
+        <tr>
+          <td><%= s.name %></td>
+          <td><%= s.address %></td>
+          <td><%= s.inscription %></td>
+          <td><%= s.weekday %></td>
+          <td>
+            <%= link_to destroy_stall_path(s, stall: {market_id: s.id }), method: :delete  do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+      <br><br>
+      <p><h3><%= t('.add_info')%></h3></p>
+      <br>
+
+      <%= simple_form_for @add_stall,
+          :url => url_for(:action => 'create_stall'),
+          :method => 'post'  do |f| %>
+        <%= f.input :market_id, collection: @markets, label: t('.markets') %>
+        <%= f.button :submit, t('.add'), class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
