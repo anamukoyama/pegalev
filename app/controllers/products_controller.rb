@@ -15,9 +15,10 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def create
     @product = Product.new(product_params)
+    @product.name = @product.name.capitalize
     if @product.save
       flash[:notice] = "Produto adicionado com sucesso"
-      redirect_to product_path(@product)
+      redirect_to products_path
     else
         render :new
     end
