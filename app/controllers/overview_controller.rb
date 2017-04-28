@@ -37,7 +37,7 @@ class OverviewController < ApplicationController
 
   def edit_price
     update_section       = SellerProduct.where(id: product_params['id']).first
-    update_section.price = product_params['price'].to_f
+    update_section.price = product_params['price']
     update_section.save
     redirect_to my_products_path
   end
