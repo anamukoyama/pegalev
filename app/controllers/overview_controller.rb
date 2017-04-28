@@ -1,4 +1,6 @@
 class OverviewController < ApplicationController
+
+
   def index
   end
 
@@ -9,8 +11,9 @@ class OverviewController < ApplicationController
 # products -----------------------------------------------------
 
   def my_products
+    @edit_price  = SellerProduct.new
     @add_product = SellerProduct.new
-    @my_products = current_seller.products
+    @my_products = products_prices(current_seller.products.order("name"))
     @products    = products_to_add(Product.all)
   end
 
@@ -27,8 +30,15 @@ class OverviewController < ApplicationController
 
   def destroy_product
     # deletando associação entre seller e o produto de sua lista
-    @seller_product_association = SellerProduct.where(product_id: product_params['product_id'].to_i, seller_id: current_seller.id).first
+    @seller_product_association = SellerProduct.where(id: product_params['product_id'].to_i, seller_id: current_seller.id).first
     @seller_product_association.destroy
+    redirect_to my_products_path
+  end
+
+  def edit_price
+    update_section       = SellerProduct.where(id: product_params['id']).first
+    update_section.price = product_params['price'].to_f
+    update_section.save
     redirect_to my_products_path
   end
 
@@ -77,8 +87,16 @@ class OverviewController < ApplicationController
     end
   end
 
+  def products_prices (products)
+    list = []
+    products.each do |p|
+     list << [p, p.seller_products.where(seller_id: current_seller.id).first]
+    end
+    list
+  end
+
   def product_params
-    params.require(:seller_product).permit(:product_id)
+    params.require(:seller_product).permit(:product_id, :price, :id)
   end
 
   def stall_params

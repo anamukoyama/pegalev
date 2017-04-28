@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/my_products", to: 'overview#my_products'
   post "/create_product", to: 'overview#create_product'
   delete "/destroy_product", to: 'overview#destroy_product'
+  get "/edit_price", to: 'overview#edit_price'
 
   get "/my_stalls", to: 'overview#my_stalls'
   post "/create_stall", to: 'overview#create_stall'

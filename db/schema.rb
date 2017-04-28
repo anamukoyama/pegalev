@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410132246) do
+ActiveRecord::Schema.define(version: 20170424233601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170410132246) do
     t.string   "unity_type"
     t.string   "box"
     t.boolean  "organic"
-    t.decimal  "price"
+    t.float    "price"
     t.integer  "seller_id"
     t.index ["product_id"], name: "index_seller_products_on_product_id", using: :btree
     t.index ["seller_id"], name: "index_seller_products_on_seller_id", using: :btree

@@ -11,15 +11,24 @@
           <th><%=t('.name')%></th>
           <th><%=t('.category')%></th>
           <th><%=t('.suggested_price')%></th>
+          <th>Preço Escolhido</th>
+          <th>Mudar preço</th>
         </tr>
       <% @my_products.each do |p| %>
         <tr>
-          <td><%= p.name %></td>
-          <td><%= p.category %></td>
-          <td><%= p.price %></td>
-
+          <td><%= p.first.name %></td>
+          <td><%= p.first.category %></td>
+          <td><%= p.first.price %></td>
+          <td><%= p.last.price %></td>
+          <td><%= simple_form_for @edit_price,
+              :url => url_for(:action => 'edit_price'),
+              :method => 'get' do |f| %>
+              <%= f.input :id, input_html: {value: p.last.id},:as => :hidden %>
+              <%= f.input :price, label:false, :input_html => {:maxlength =>2,:style=> 'width: 60px'} %></td>
+          <td><%= f.submit "Mudar", class: "btn btn-primary" %></td>
+          <% end %>
           <td>
-            <%= link_to destroy_product_path(p, seller_product: {product_id: p.id }), method: :delete  do %>
+            <%= link_to destroy_product_path(p, seller_product: {product_id: p.last.id }), method: :delete  do %>
             <i class="fa fa-times" aria-hidden="true"></i>
             <% end %>
           </td>
