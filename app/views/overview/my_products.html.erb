@@ -42,7 +42,7 @@
       <%= simple_form_for @add_product,
           :url => url_for(:action => 'create_product'),
           :method => 'post'  do |f| %>
-        <%= f.input :product_id, collection: @products, label: t('.products') %>
+        <%= f.input :product_id, collection: @products, placeholder: t('.form_info'), label: false, :input_html => {:style=> 'width: 300px'} %>
         <%= f.button :submit, t('.add'), class: 'btn btn-primary' %>
       <% end %>
     </div>
