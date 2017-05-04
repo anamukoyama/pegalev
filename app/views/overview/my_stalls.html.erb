@@ -40,3 +40,16 @@
     </div>
   </div>
 </div>
+
+
+ <script>
+    (function($){
+      $(function(){
+        $('select').selectToAutocomplete();
+        $('form').submit(function(){
+          return true;
+          }
+        );
+      });
+    })(jQuery);
+  </script>

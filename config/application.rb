@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module Pegalev_asset
+  class Application < Rails::Application
+    config.assets.paths << Rails.root.join("node_modules")
+  end
+end
+
 module T
   class Application < Rails::Application
     config.i18n.default_locale = 'pt-BR'
