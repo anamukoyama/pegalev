@@ -13,7 +13,7 @@ end
 
 form do |f|
   f.inputs "Barraca" do
-    f.input :seller_id, :as => :select, :collection => Seller.all
+    f.input :seller_id, :as => :select, :collection => Seller.all.map.map{|s| ["id: #{s.id}, name: #{s.name}, email: #{s.email}", s.id]}
     f.input :market_id, :as => :select, :collection => Market.all
   end
   f.actions
