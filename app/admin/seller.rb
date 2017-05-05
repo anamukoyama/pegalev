@@ -2,7 +2,7 @@ ActiveAdmin.register Seller do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :email, :name, :mobile, :zipcode, :city, :state, :number, :complement, :admin
+permit_params :email, :name, :mobile, :zipcode, :city, :state, :number, :complement, :admin, :password, :password_confirmation
 
 
 index do
@@ -19,6 +19,7 @@ end
       f.input :name
       f.input :email
       f.input :password
+      f.input :password_confirmation
       f.input :mobile
       f.input :city
       f.input :state

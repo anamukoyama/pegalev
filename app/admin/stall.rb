@@ -10,6 +10,15 @@ index do
   column :seller_id
   column :market_id
 end
+
+form do |f|
+  f.inputs "Barraca" do
+    f.input :seller_id, :as => :select, :collection => Market.all
+   # f.input :market_id, :as => :select, :collection => Market.all
+  end
+  f.actions
+end
+
 #
 # or
 #
