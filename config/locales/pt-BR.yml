@@ -31,6 +31,7 @@ pt-BR:
       seller_products: Minhas Mercadorias
       add: Adicionar
       add_info: Adicione mais produtos que você deseja vender
+      form_info: Busque aqui pelo nome do produto
       choosed_price: Preço Escolhido
       change_price: Mudar preço
       change: Mudar
@@ -41,6 +42,7 @@ pt-BR:
       day: Dia
       seller_stalls: Feiras onde eu tenho barraca
       add_info: Adicione a feira que você está trabalhando
+      form_info: Busque aqui pelo nome do bairro
       add: Adicionar
       markets: Feiras
   products:

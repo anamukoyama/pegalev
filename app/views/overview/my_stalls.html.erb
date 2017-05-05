@@ -34,9 +34,22 @@
       <%= simple_form_for @add_stall,
           :url => url_for(:action => 'create_stall'),
           :method => 'post'  do |f| %>
-        <%= f.input :market_id, collection: @markets, label: t('.markets') %>
+        <%= f.input :market_id, collection: @markets, placeholder: t('.form_info'), label: false, :input_html => {:style=> 'width: 360px'} %>
         <%= f.button :submit, t('.add'), class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
+
+
+<script>
+  (function($){
+    $(function(){
+      $('select').selectToAutocomplete();
+      $('form').submit(function(){
+        return true;
+        }
+      );
+    });
+  })(jQuery);
+</script>

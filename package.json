@@ -1,0 +1,25 @@
+{
+  "name": "pegalev",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anamukoyama/pegalev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anamukoyama/pegalev/issues"
+  },
+  "homepage": "https://github.com/anamukoyama/pegalev#readme",
+  "dependencies": {
+    "easy-autocomplete": "^1.3.5"
+  }
+}
