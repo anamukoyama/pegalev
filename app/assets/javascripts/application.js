@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery/dist/jquery
+//= require jquery-ujs/src/rails
+//= require turbolinks/dist/turbolinks
 //= require underscore
 //= require gmaps/google
-//= require bootstrap-sprockets
+//= require bootstrap-sass/assets/javascripts/bootstrap
 //= require jquery-1.11.1.min.js
 //= require jquery-ui.min.js
 //= require jquery.select-to-autocomplete
