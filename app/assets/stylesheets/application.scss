@@ -1,8 +1,10 @@
 /*
 *= require jquery-ui
+*= require font-awesome/scss/font-awesome
 */
 
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Graphical variables
@@ -10,8 +12,10 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "font-awesome-sprockets";
-@import "font-awesome";
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
+//@import "font-awesome-sprockets";
+//@import "font-awesome";
 
 // Your CSS
 @import "layout/index";
