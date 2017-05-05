@@ -13,8 +13,8 @@ end
 
 form do |f|
   f.inputs "Barraca" do
-    f.input :seller_id, :as => :select, :collection => Market.all
-   # f.input :market_id, :as => :select, :collection => Market.all
+    f.input :seller_id, :as => :select, :collection => Seller.all
+    f.input :market_id, :as => :select, :collection => Market.all
   end
   f.actions
 end
