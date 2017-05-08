@@ -25,66 +25,104 @@ Rails.application.routes.draw do
 end
 
 =begin
-                    Prefix Verb   URI Pattern                      Controller#Action
-                      root GET    /                                pages#home
-          new_user_session GET    /users/sign_in(.:format)         devise/sessions#new
-              user_session POST   /users/sign_in(.:format)         devise/sessions#create
-      destroy_user_session DELETE /users/sign_out(.:format)        devise/sessions#destroy
-         new_user_password GET    /users/password/new(.:format)    devise/passwords#new
-        edit_user_password GET    /users/password/edit(.:format)   devise/passwords#edit
-             user_password PATCH  /users/password(.:format)        devise/passwords#update
-                           PUT    /users/password(.:format)        devise/passwords#update
-                           POST   /users/password(.:format)        devise/passwords#create
-  cancel_user_registration GET    /users/cancel(.:format)          devise/registrations#cancel
-     new_user_registration GET    /users/sign_up(.:format)         devise/registrations#new
-    edit_user_registration GET    /users/edit(.:format)            devise/registrations#edit
-         user_registration PATCH  /users(.:format)                 devise/registrations#update
-                           PUT    /users(.:format)                 devise/registrations#update
-                           DELETE /users(.:format)                 devise/registrations#destroy
-                           POST   /users(.:format)                 devise/registrations#create
-        new_seller_session GET    /sellers/sign_in(.:format)       devise/sessions#new
-            seller_session POST   /sellers/sign_in(.:format)       devise/sessions#create
-    destroy_seller_session DELETE /sellers/sign_out(.:format)      devise/sessions#destroy
-       new_seller_password GET    /sellers/password/new(.:format)  devise/passwords#new
-      edit_seller_password GET    /sellers/password/edit(.:format) devise/passwords#edit
-           seller_password PATCH  /sellers/password(.:format)      devise/passwords#update
-                           PUT    /sellers/password(.:format)      devise/passwords#update
-                           POST   /sellers/password(.:format)      devise/passwords#create
-cancel_seller_registration GET    /sellers/cancel(.:format)        devise/registrations#cancel
-   new_seller_registration GET    /sellers/sign_up(.:format)       devise/registrations#new
-  edit_seller_registration GET    /sellers/edit(.:format)          devise/registrations#edit
-       seller_registration PATCH  /sellers(.:format)               devise/registrations#update
-                           PUT    /sellers(.:format)               devise/registrations#update
-                           DELETE /sellers(.:format)               devise/registrations#destroy
-                           POST   /sellers(.:format)               devise/registrations#create
-                  products GET    /products(.:format)              products#index
-                           POST   /products(.:format)              products#create
-               new_product GET    /products/new(.:format)          products#new
-              edit_product GET    /products/:id/edit(.:format)     products#edit
-                   product GET    /products/:id(.:format)          products#show
-                           PATCH  /products/:id(.:format)          products#update
-                           PUT    /products/:id(.:format)          products#update
-                           DELETE /products/:id(.:format)          products#destroy
-                   markets GET    /markets(.:format)               markets#index
-                           POST   /markets(.:format)               markets#create
-                new_market GET    /markets/new(.:format)           markets#new
-               edit_market GET    /markets/:id/edit(.:format)      markets#edit
-                    market GET    /markets/:id(.:format)           markets#show
-                           PATCH  /markets/:id(.:format)           markets#update
-                           PUT    /markets/:id(.:format)           markets#update
-                           DELETE /markets/:id(.:format)           markets#destroy
-                    stalls GET    /stalls(.:format)                stalls#index
-                           POST   /stalls(.:format)                stalls#create
-                 new_stall GET    /stalls/new(.:format)            stalls#new
-                     stall DELETE /stalls/:id(.:format)            stalls#destroy
-                    search GET    /search(.:format)                markets#search
-                  overview GET    /overview(.:format)              overview#index
-                 my_orders GET    /my_orders(.:format)             overview#my_orders
-               my_products GET    /my_products(.:format)           overview#my_products
-            create_product POST   /create_product(.:format)        overview#create_product
-           destroy_product DELETE /destroy_product(.:format)       overview#destroy_product
-                 my_stalls GET    /my_stalls(.:format)             overview#my_stalls
-              create_stall POST   /create_stall(.:format)          overview#create_stall
-             destroy_stall DELETE /destroy_stall(.:format)         overview#destroy_stall
+                     Prefix Verb   URI Pattern                            Controller#Action
+                 admin_root GET    /admin(.:format)                       admin/dashboard#index
+ batch_action_admin_sellers POST   /admin/sellers/batch_action(.:format)  admin/sellers#batch_action
+              admin_sellers GET    /admin/sellers(.:format)               admin/sellers#index
+                            POST   /admin/sellers(.:format)               admin/sellers#create
+           new_admin_seller GET    /admin/sellers/new(.:format)           admin/sellers#new
+          edit_admin_seller GET    /admin/sellers/:id/edit(.:format)      admin/sellers#edit
+               admin_seller GET    /admin/sellers/:id(.:format)           admin/sellers#show
+                            PATCH  /admin/sellers/:id(.:format)           admin/sellers#update
+                            PUT    /admin/sellers/:id(.:format)           admin/sellers#update
+                            DELETE /admin/sellers/:id(.:format)           admin/sellers#destroy
+   batch_action_admin_users POST   /admin/users/batch_action(.:format)    admin/users#batch_action
+                admin_users GET    /admin/users(.:format)                 admin/users#index
+                            POST   /admin/users(.:format)                 admin/users#create
+             new_admin_user GET    /admin/users/new(.:format)             admin/users#new
+            edit_admin_user GET    /admin/users/:id/edit(.:format)        admin/users#edit
+                 admin_user GET    /admin/users/:id(.:format)             admin/users#show
+                            PATCH  /admin/users/:id(.:format)             admin/users#update
+                            PUT    /admin/users/:id(.:format)             admin/users#update
+                            DELETE /admin/users/:id(.:format)             admin/users#destroy
+ batch_action_admin_markets POST   /admin/markets/batch_action(.:format)  admin/markets#batch_action
+              admin_markets GET    /admin/markets(.:format)               admin/markets#index
+                            POST   /admin/markets(.:format)               admin/markets#create
+           new_admin_market GET    /admin/markets/new(.:format)           admin/markets#new
+          edit_admin_market GET    /admin/markets/:id/edit(.:format)      admin/markets#edit
+               admin_market GET    /admin/markets/:id(.:format)           admin/markets#show
+                            PATCH  /admin/markets/:id(.:format)           admin/markets#update
+                            PUT    /admin/markets/:id(.:format)           admin/markets#update
+                            DELETE /admin/markets/:id(.:format)           admin/markets#destroy
+batch_action_admin_products POST   /admin/products/batch_action(.:format) admin/products#batch_action
+             admin_products GET    /admin/products(.:format)              admin/products#index
+                            POST   /admin/products(.:format)              admin/products#create
+          new_admin_product GET    /admin/products/new(.:format)          admin/products#new
+         edit_admin_product GET    /admin/products/:id/edit(.:format)     admin/products#edit
+              admin_product GET    /admin/products/:id(.:format)          admin/products#show
+                            PATCH  /admin/products/:id(.:format)          admin/products#update
+                            PUT    /admin/products/:id(.:format)          admin/products#update
+                            DELETE /admin/products/:id(.:format)          admin/products#destroy
+  batch_action_admin_stalls POST   /admin/stalls/batch_action(.:format)   admin/stalls#batch_action
+               admin_stalls GET    /admin/stalls(.:format)                admin/stalls#index
+                            POST   /admin/stalls(.:format)                admin/stalls#create
+            new_admin_stall GET    /admin/stalls/new(.:format)            admin/stalls#new
+           edit_admin_stall GET    /admin/stalls/:id/edit(.:format)       admin/stalls#edit
+                admin_stall GET    /admin/stalls/:id(.:format)            admin/stalls#show
+                            PATCH  /admin/stalls/:id(.:format)            admin/stalls#update
+                            PUT    /admin/stalls/:id(.:format)            admin/stalls#update
+                            DELETE /admin/stalls/:id(.:format)            admin/stalls#destroy
+            admin_dashboard GET    /admin/dashboard(.:format)             admin/dashboard#index
+             admin_comments GET    /admin/comments(.:format)              admin/comments#index
+                            POST   /admin/comments(.:format)              admin/comments#create
+              admin_comment GET    /admin/comments/:id(.:format)          admin/comments#show
+                            DELETE /admin/comments/:id(.:format)          admin/comments#destroy
+                       root GET    /                                      pages#home
+           new_user_session GET    /users/sign_in(.:format)               devise/sessions#new
+               user_session POST   /users/sign_in(.:format)               devise/sessions#create
+       destroy_user_session DELETE /users/sign_out(.:format)              devise/sessions#destroy
+          new_user_password GET    /users/password/new(.:format)          devise/passwords#new
+         edit_user_password GET    /users/password/edit(.:format)         devise/passwords#edit
+              user_password PATCH  /users/password(.:format)              devise/passwords#update
+                            PUT    /users/password(.:format)              devise/passwords#update
+                            POST   /users/password(.:format)              devise/passwords#create
+   cancel_user_registration GET    /users/cancel(.:format)                devise/registrations#cancel
+      new_user_registration GET    /users/sign_up(.:format)               devise/registrations#new
+     edit_user_registration GET    /users/edit(.:format)                  devise/registrations#edit
+          user_registration PATCH  /users(.:format)                       devise/registrations#update
+                            PUT    /users(.:format)                       devise/registrations#update
+                            DELETE /users(.:format)                       devise/registrations#destroy
+                            POST   /users(.:format)                       devise/registrations#create
+         new_seller_session GET    /sellers/sign_in(.:format)             devise/sessions#new
+             seller_session POST   /sellers/sign_in(.:format)             devise/sessions#create
+     destroy_seller_session DELETE /sellers/sign_out(.:format)            devise/sessions#destroy
+        new_seller_password GET    /sellers/password/new(.:format)        devise/passwords#new
+       edit_seller_password GET    /sellers/password/edit(.:format)       devise/passwords#edit
+            seller_password PATCH  /sellers/password(.:format)            devise/passwords#update
+                            PUT    /sellers/password(.:format)            devise/passwords#update
+                            POST   /sellers/password(.:format)            devise/passwords#create
+ cancel_seller_registration GET    /sellers/cancel(.:format)              devise/registrations#cancel
+    new_seller_registration GET    /sellers/sign_up(.:format)             devise/registrations#new
+   edit_seller_registration GET    /sellers/edit(.:format)                devise/registrations#edit
+        seller_registration PATCH  /sellers(.:format)                     devise/registrations#update
+                            PUT    /sellers(.:format)                     devise/registrations#update
+                            DELETE /sellers(.:format)                     devise/registrations#destroy
+                            POST   /sellers(.:format)                     devise/registrations#create
+                   products GET    /products(.:format)                    products#index
+                    product GET    /products/:id(.:format)                products#show
+                     stalls GET    /stalls(.:format)                      stalls#index
+                            POST   /stalls(.:format)                      stalls#create
+                  new_stall GET    /stalls/new(.:format)                  stalls#new
+                      stall DELETE /stalls/:id(.:format)                  stalls#destroy
+                     search GET    /search(.:format)                      markets#search
+                   overview GET    /overview(.:format)                    overview#index
+                  my_orders GET    /my_orders(.:format)                   overview#my_orders
+                my_products GET    /my_products(.:format)                 overview#my_products
+             create_product POST   /create_product(.:format)              overview#create_product
+            destroy_product DELETE /destroy_product(.:format)             overview#destroy_product
+                 edit_price GET    /edit_price(.:format)                  overview#edit_price
+                  my_stalls GET    /my_stalls(.:format)                   overview#my_stalls
+               create_stall POST   /create_stall(.:format)                overview#create_stall
+              destroy_stall DELETE /destroy_stall(.:format)               overview#destroy_stall
 
 =end
