@@ -18,7 +18,7 @@
     <% end %>
   <% end %>
   <% products_array.uniq.each do |product| %>
-    <%= link_to(product_path(product.id)) do %>
+    <%= link_to(market_product_path(market_id: @market.id , id: product.id)) do %>
       <%= cl_image_tag product.photo, width: 300, height: 200 %>
       <br>
       <%= product.name %>
