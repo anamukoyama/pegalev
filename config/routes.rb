@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :sellers
 
-  resources :products
-  resources :markets
   resources :stalls, only: [:index, :create, :new, :destroy]
-
   get '/search', to: 'markets#search'
 
   # only for seller control
