@@ -1,5 +1,4 @@
 class MarketsController < ApplicationController
-  before_action :set_market, only: [:show]
 
   def search
     @markets = Market.all
@@ -17,6 +16,10 @@ class MarketsController < ApplicationController
     # @markets.each do |market|
     #   @market_coordinates << { lat: market.latitude, lng: market.longitude }
     # end
+  end
+
+  def show
+    @market = Market.find(params[:id])
   end
 
   private
