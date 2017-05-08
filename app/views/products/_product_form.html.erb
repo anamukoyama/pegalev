@@ -1,9 +1,0 @@
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :name, value: @product.name, placeholder: "Ex: Morango" %>
-  <%= f.input :category, value: @product.category, collection: Product::CATEGORIES, prompt: "Escolha uma categoria"%>
-  <%= f.input :best_before, value: @product.best_before, placeholder: "Tempo médio de duração na geladeira" %>
-  <%= f.input :price, value: @product.price, placeholder: "Ex: 10", label: "Preço"  %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, class: "btn btn-success btn-lg" %></div>
-<% end %>
