@@ -38,6 +38,7 @@ gem 'devise-i18n'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
 gem 'figaro'
+gem 'jquery-inputmask-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

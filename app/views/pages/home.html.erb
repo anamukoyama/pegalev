@@ -2,15 +2,28 @@
   <div class="banner-content">
     <!-- <h1>Digite seu CEP</h1> -->
     <div class="banner-content-form">
-      <form action="/search">
-        <div class="input-group">
-            <input type="text" name="search_by_cep" class="form-control" placeholder="Digite seu cep">
+      <div>
+        <form id="form_search_by_cep" action="/search">
+          <div class="input-group">
+              <input type="text" name="search_by_cep" class="cep-mask form-control" placeholder="Digite seu cep">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+              </span>
+          </div>
+        </form>
+        <%= link_to "Não sei meu cep", id: "btn_search_by_address", class: "banner-content-small text-left" %>
+      </div>
+      <div>
+        <form id="form_search_by_address" action="/search" style="display: none;">
+          <div class="input-group">
+            <input type="text" name="search_by_address" class="form-control" placeholder="Digite seu endereço">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Buscar</button>
-            </span>
-        </div>
-      </form>
-      <%= link_to "Não sei meu cep", "#", class: "banner-content-small text-left" %>
+                <button class="btn btn-primary" type="submit">Buscar</button>
+              </span>
+          </div>
+        </form>
+        <%= link_to "Procurar pelo cep", id: "btn_search_by_cep", class: "banner-content-small text-left" %>
+      </div>
     </div>
   </div>
 </div>

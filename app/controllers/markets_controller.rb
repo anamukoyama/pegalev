@@ -16,6 +16,10 @@ class MarketsController < ApplicationController
     if params[:search_by_cep].present?
       @markets = @markets.near(params[:search_by_cep], 1)
     end
+    if @markets.empty?
+      redirect_to root_path
+      flash[:alert] = "Não existem feiras próximas a este cep"
+    end
 
     @markets = @markets.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
