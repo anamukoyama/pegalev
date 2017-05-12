@@ -16,6 +16,10 @@
       text-shadow: 1px 1px 10px $brand-color;
       font-size: 2em;
     }
+    .banner-content-form-wrapper {
+      min-height: 62px;
+      min-width: 400px;
+    }
     .banner-content-form {
       max-width: 400px;
       margin-top: 20px;

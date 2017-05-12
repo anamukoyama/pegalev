@@ -15,7 +15,12 @@
 //= require turbolinks/dist/turbolinks
 //= require underscore
 //= require gmaps/google
-//= require bootstrap-sass/assets/javascripts/bootstrap
 //= require jquery-1.11.1.min.js
 //= require jquery-ui.min.js
 //= require jquery.select-to-autocomplete
+//= require main.js
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
+//= require bootstrap-sass/assets/javascripts/bootstrap
