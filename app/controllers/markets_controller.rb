@@ -28,7 +28,7 @@ class MarketsController < ApplicationController
   private
 
   def set_date
-    @today = Date.new.strftime('%A')
+    @today = Date.today.strftime('%A')
     if @today == "Monday"
       @today = "SEGUNDA-FEIRA"
     elsif @today == "Tuesday"
