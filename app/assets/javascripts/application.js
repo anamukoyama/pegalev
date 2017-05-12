@@ -19,3 +19,7 @@
 //= require jquery-1.11.1.min.js
 //= require jquery-ui.min.js
 //= require jquery.select-to-autocomplete
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions

@@ -33,6 +33,7 @@ gem 'devise-i18n'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
 gem 'figaro'
+gem 'jquery-inputmask-rails'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # Use Capistrano for deployment

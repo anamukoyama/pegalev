@@ -1,12 +1,14 @@
 class MarketsController < ApplicationController
-
   before_action :set_date, only: [:show, :search]
-
 
   def search
     @markets = Market.all
     if params[:search_by_cep].present?
       @markets = @markets.near(params[:search_by_cep], 1)
+    end
+    if @markets.empty?
+      flash[:notice] = "Não existem feiras próximas a este cep"
+      redirect_to root_path
     end
 
     @markets = @markets.where.not(latitude: nil, longitude: nil, weekday: @today)
@@ -49,5 +51,4 @@ class MarketsController < ApplicationController
   def market_params
      params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude)
   end
-
 end
