@@ -7,7 +7,7 @@ class MarketsController < ApplicationController
       @markets = @markets.near(params[:search_by_cep], 1)
     end
     if @markets.empty?
-      flash[:notice] = "Não existem feiras próximas a este cep"
+      flash[:alert] = "Não existem feiras próximas a este cep"
       redirect_to root_path
     end
 
