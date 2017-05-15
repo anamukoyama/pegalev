@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @random_seller = @sellers.sample
     @product = Product.find(params[:id])
     @market  = Market.find(params["market_id"].to_i)
+    @order_item = current_order.Orderitem.new
   end
 
   def add_to_bascket

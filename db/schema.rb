@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505191248) do
+ActiveRecord::Schema.define(version: 20170515181120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,16 +46,30 @@ ActiveRecord::Schema.define(version: 20170505191248) do
     t.string   "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal  "unit_price"
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "amount"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
     t.integer  "stall_id"
+    t.integer  "order_statuses_id"
+    t.decimal  "subtotal"
+    t.decimal  "total"
+    t.decimal  "shipping"
+    t.string   "ship_address"
+    t.string   "bill_address"
+    t.string   "order_number"
+    t.index ["order_statuses_id"], name: "index_orders_on_order_statuses_id", using: :btree
     t.index ["stall_id"], name: "index_orders_on_stall_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'carts/show'
+
   ActiveAdmin.routes(self)
   root to: 'pages#home'
 
@@ -7,12 +10,11 @@ Rails.application.routes.draw do
 
   get '/search', to: "markets#search"
   resources :markets, only: [:show] do
-    resources :products, only: [:index,:show] do
-      member do
-        post :add_to_bascket
-      end
-    end
+    resources :products, only: [:index,:show]
   end
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   get '/overview', to: "overview#index"
   get "/my_orders", to: 'overview#my_orders'

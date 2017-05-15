@@ -13,21 +13,24 @@
           <ul>
             <% if seller_signed_in? %>
               <li>
-                <%= link_to t(".overview"), overview_path %>
+                  <%= link_to t(".overview"), overview_path %>
               </li>
               <li>
-              <%= link_to(t(".sign_out"), destroy_seller_session_path, :method => :delete) %>
+                <%= link_to(t(".sign_out"), destroy_seller_session_path, :method => :delete) %>
               </li>
             <% elsif user_signed_in? %>
+              <li>
+                <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+              </li>
               <li>
                 <%= link_to(t(".sign_out"), destroy_user_session_path, :method => :delete) %>
               </li>
             <% else %>
               <li>
-              <%= link_to(t(".im_a_seller"), new_seller_session_path)  %>
+                <%= link_to(t(".im_a_seller"), new_seller_session_path)  %>
               </li>
               <li>
-              <%= link_to(t(".sign_in"), new_user_session_path)  %>
+                <%= link_to(t(".sign_in"), new_user_session_path)  %>
               </li>
             <% end %>
           </ul>
