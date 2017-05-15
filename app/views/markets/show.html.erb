@@ -1,7 +1,6 @@
 <div class="container fit-header">
   <%= @market.name %>
 
-
   <% if @market.sellers == [] %>
 
     <p>Ainda não há feirantes cadastrados nesta feira!</p>
@@ -10,22 +9,23 @@
 
     <p>Produtos disponíveis</p>
 
-    <% products_array = [] %>
-    <% @market.sellers.each do |seller| %>
-      <% seller.products.each do |product| %>
-        <% products_array << product %>
+  <!-- Exibir as feiras -->
+    <% @sellers_by_product.each do |section| %>
+      <% product = section.first %>
+      <% sellers = section.last %>
+      <% list = [] %>
+      <% sellers.each do |seller| %>
+       <% list << seller.id %>
       <% end %>
+
+      <%= link_to(market_product_path(market_id: @market.id , id: product.id, sellers: list)) do %>
+          <%= cl_image_tag product.photo, width: 300, height: 200 %>
+          <br>
+          <%= product.name %>
+          <br>
+      <% end %>
+
     <% end %>
   <% end %>
-  <% products_array.uniq.each do |product| %>
-    <%= link_to(market_product_path(market_id: @market.id , id: product.id)) do %>
-      <%= cl_image_tag product.photo, width: 300, height: 200 %>
-      <br>
-      <%= product.name %>
-      <br>
-    <% end %>
-  <% end %>
-
-
 
 </div>
