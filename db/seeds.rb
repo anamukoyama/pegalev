@@ -1,3 +1,4 @@
+
 require 'csv'
 
 csv_text = File.read(Rails.root.join("lib", "seeds", "seed_markets_FULL.csv"))
@@ -10,6 +11,7 @@ t = Market.new
   t.name = row['name']
   t.save
 end
+
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"

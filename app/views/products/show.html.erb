@@ -8,10 +8,11 @@
         <h2><%= @product.name %></h2>
         <h3><%= number_to_currency(@product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></h3>
         <p><%=t('.price_set_by')%> KG</p>
-        <%#= link_to t('.cta'), :action => :add_to_bascket, market_id: @market.id, id: @product.id, class: "btn btn-success", method: :post %>
-        <%= link_to "Adicionar a cesta", add_to_bascket_market_product_path(market_id: @market.id, id: @product.id, seller: @random_seller), method: :post %>
-         <!--  <button type="button" class="btn btn-success"><%#=t('.cta')%></button> -->
-        <%# end %>
+          <%= form_for @order_item do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.number_field :quantity %>
+            <%= f.submit "Add to cart" %>
+          <% end %>
       </div>
     </div>
   </div>

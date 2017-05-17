@@ -1,5 +1,0 @@
-<% if @product.photo? %>
-  <%= cl_image_tag @product.photo.url(:show) %>
-<% else %>
-  <img class="img-responsive" src="http://placehold.it/750x400" class="img-thumbnail" >
-<% end %>

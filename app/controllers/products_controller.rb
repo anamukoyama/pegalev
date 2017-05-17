@@ -9,7 +9,8 @@ class ProductsController < ApplicationController
     @random_seller = @sellers.sample
     @product = Product.find(params[:id])
     @market  = Market.find(params["market_id"].to_i)
-    @order_item = current_order.Orderitem.new
+    # When a user submits the form, a new order_item will be instantiated inside of current_order, so it will be available to the create route in order_Items_controller.rb.
+    @order_item = current_order.order_items.new
   end
 
   def add_to_bascket
