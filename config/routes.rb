@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/search', to: "markets#search"
   resources :markets, only: [:show] do
-    resources :products, only: [:index,:show]
+    resources :products, only: [:show]
   end
 
   resource :cart, only: [:show]
