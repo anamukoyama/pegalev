@@ -9,14 +9,6 @@ class ProductsController < ApplicationController
     @order_item = current_order.order_items.new
   end
 
-  def add_to_bascket
-    # stall = Stall.where(seller_id: params["seller"], market_id: params["market_id"].to_i).first
-    user_verification
-    # Order.new(user_id: current_user.id, stall_id: stall.id )
-    # flash 'produto adicionado com sucesso!'
-  end
-
-
   private
 
   # recebe os um array com os id's dos feirantes deste produto especifico
