@@ -16,15 +16,12 @@ class MarketsController < ApplicationController
       marker.lat market.latitude
       marker.lng market.longitude
     end
-
-    # @market_coordinates = []
-    # @markets.each do |market|
-    #   @market_coordinates << { lat: market.latitude, lng: market.longitude }
-    # end
   end
 
   def show
     @market = Market.find(params[:id])
+    # variavel recebe valor do metodo 'sellers_by_product'
+    @sellers_by_product = sellers_by_product
   end
 
   private
@@ -48,7 +45,19 @@ class MarketsController < ApplicationController
     end
   end
 
+  def sellers_by_product
+    product_seller = []
+    @market.sellers.each do |seller|
+      seller.products.each do |product|
+        product_seller << [product, seller]
+      end
+    end
+    product_seller.group_by(&:first).map { |fruit, pairs| [fruit, pairs.map(&:last)] }
+  end
+
   def market_params
      params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude)
   end
 end
+
+

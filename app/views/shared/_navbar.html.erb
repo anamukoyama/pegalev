@@ -8,6 +8,7 @@
   <div class="navbar-pegalev-menu">
     <div class="dropdown">
       <% if seller_signed_in? %>
+
         <% avatar_url = "default_avatar.png" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -41,6 +42,7 @@
           </li>
         </ul>
       <% elsif user_signed_in? %>
+
         <% avatar_url = "default_avatar.png" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -53,6 +55,9 @@
             <%= link_to user_path(current_user) do %>
               <i class="fa fa-user"></i> <%=t('.profile')%>
             <% end %>
+          </li>
+          <li>
+            <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>

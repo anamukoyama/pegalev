@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'carts/show'
+
   ActiveAdmin.routes(self)
   root to: 'pages#home'
 
@@ -7,8 +10,11 @@ Rails.application.routes.draw do
 
   get '/search', to: "markets#search"
   resources :markets, only: [:show] do
-    resources :products, only: [:index, :show]
+    resources :products, only: [:show]
   end
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   get '/overview', to: "overview#index"
   get "/my_orders", to: 'overview#my_orders'
@@ -25,6 +31,7 @@ end
 
 =begin
                      Prefix Verb   URI Pattern                                Controller#Action
+                 carts_show GET    /carts/show(.:format)                      carts#show
                  admin_root GET    /admin(.:format)                           admin/dashboard#index
  batch_action_admin_sellers POST   /admin/sellers/batch_action(.:format)      admin/sellers#batch_action
               admin_sellers GET    /admin/sellers(.:format)                   admin/sellers#index
@@ -107,14 +114,14 @@ batch_action_admin_products POST   /admin/products/batch_action(.:format)     ad
                             PUT    /sellers(.:format)                         devise/registrations#update
                             DELETE /sellers(.:format)                         devise/registrations#destroy
                             POST   /sellers(.:format)                         devise/registrations#create
-                     stalls GET    /stalls(.:format)                          stalls#index
-                            POST   /stalls(.:format)                          stalls#create
-                  new_stall GET    /stalls/new(.:format)                      stalls#new
-                      stall DELETE /stalls/:id(.:format)                      stalls#destroy
                      search GET    /search(.:format)                          markets#search
-            market_products GET    /markets/:market_id/products(.:format)     products#index
              market_product GET    /markets/:market_id/products/:id(.:format) products#show
                      market GET    /markets/:id(.:format)                     markets#show
+                       cart GET    /cart(.:format)                            carts#show
+                order_items POST   /order_items(.:format)                     order_items#create
+                 order_item PATCH  /order_items/:id(.:format)                 order_items#update
+                            PUT    /order_items/:id(.:format)                 order_items#update
+                            DELETE /order_items/:id(.:format)                 order_items#destroy
                    overview GET    /overview(.:format)                        overview#index
                   my_orders GET    /my_orders(.:format)                       overview#my_orders
                 my_products GET    /my_products(.:format)                     overview#my_products
