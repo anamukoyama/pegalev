@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
 
-  def index
-    @products = Product.all
-  end
-
   def show
     @sellers = sellers(params["sellers"])
     @random_seller = @sellers.sample
