@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
     market  = Market.find(params["market_id"].to_i)
     @stall = Stall.where(seller_id: random_seller.id, market_id: market.id).first
     @product = Product.find(params[:id])
-
     # When a user submits the form, a new order_item will be instantiated inside of current_order, so it will be available to the create route in order_Items_controller.rb.
     @order_item = current_order.order_items.new
   end
