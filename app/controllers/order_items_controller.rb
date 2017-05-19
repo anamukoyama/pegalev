@@ -4,9 +4,8 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order.stall_id = order_params["stall_id"].to_i
     # passando os parâmetros desta ordem
-    @item = @order.order_items.new(quantity: order_params["quantity"].to_i, product_id: order_params["product_id"].to_i)
+    new_product?(order_params["product_id"].to_i, order_params["quantity"].to_i)
     @order.save
-    @item.unit_price = @item.product.price
     # salva aquela ordem no cookie
     session[:order_id] = @order.id
     market = Stall.find(order_params["stall_id"].to_i).market
@@ -28,6 +27,22 @@ class OrderItemsController < ApplicationController
   end
 
 private
+
+  def new_product?(id, qty)
+    answer = true
+    @order.order_items.each do |item|
+      if item.product_id == id
+        item.quantity += qty
+        item.save
+        answer = false
+      end
+    end
+    if answer
+      @item = @order.order_items.new(quantity: qty, product_id: id)
+      @item.unit_price = @item.product.price
+    end
+  end
+
   def order_params
     params.require(:order_item).permit(:quantity, :product_id, :stall_id)
   end
