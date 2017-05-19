@@ -9,7 +9,8 @@ class OrderItemsController < ApplicationController
     @item.unit_price = @item.product.price
     # salva aquela ordem no cookie
     session[:order_id] = @order.id
-    redirect_to root_path
+    market = Stall.find(order_params["stall_id"].to_i).market
+    redirect_to market_path(market)
   end
 
   def update
