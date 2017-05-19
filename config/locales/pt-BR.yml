@@ -67,6 +67,13 @@ pt-BR:
       im_a_seller: Sou Feirante
       overview: Minhas Barracas
   pages:
+    home:
+      main_msg: "Delivery de comida fresquinha e barata"
+      sub: "Entregamos frutas, verduras e orgânicos na sua casa"
+      how-it-works: Como funciona a pegalev
+      step_1: Passo 1
+      step_2: Passo 2
+      step_3: Passo 3
 
   activerecord:
     attributes:

@@ -1,4 +1,12 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.how-it-works-content {
+    text-align: center;
+    h1,h2,h3 {
+      font-family: $base-font;
+      color: $brand-color;
+      text-shadow: 1px 1px 10px #A3DE83;
+      font-size: 3em;
+    }
+    h3 {
+      font-size: 2em;
+    }
+}
