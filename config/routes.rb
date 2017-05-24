@@ -1,32 +1,38 @@
 Rails.application.routes.draw do
 
-  get 'carts/show'
+  get "carts/show"
 
   ActiveAdmin.routes(self)
-  root to: 'pages#home'
+  root to: "pages#home"
 
   devise_for :users
   devise_for :sellers
 
-  get '/search', to: "markets#search"
+  get "/search", to: "markets#search"
   resources :markets, only: [:show] do
     resources :products, only: [:show]
   end
 
-  resource :cart, only: [:show]
+  resource :cart, only: [:show] do
+    get "/choose_address", to: "confirmation#choose_address"
+    get "/choose_delivery", to: "confirmation#choose_delivery"
+    get "/payment", to: "confirmation#payment"
+    get "/review", to: "confirmation#review"
+  end
+
   resources :order_items, only: [:create, :update, :destroy]
 
-  get '/overview', to: "overview#index"
-  get "/my_orders", to: 'overview#my_orders'
+  get "/overview", to: "overview#index"
+  get "/my_orders", to: "overview#my_orders"
 
-  get "/my_products", to: 'overview#my_products'
-  post "/create_product", to: 'overview#create_product'
-  delete "/destroy_product", to: 'overview#destroy_product'
-  get "/edit_price", to: 'overview#edit_price'
+  get "/my_products", to: "overview#my_products"
+  post "/create_product", to: "overview#create_product"
+  delete "/destroy_product", to: "overview#destroy_product"
+  get "/edit_price", to: "overview#edit_price"
 
-  get "/my_stalls", to: 'overview#my_stalls'
-  post "/create_stall", to: 'overview#create_stall'
-  delete "/destroy_stall", to: 'overview#destroy_stall'
+  get "/my_stalls", to: "overview#my_stalls"
+  post "/create_stall", to: "overview#create_stall"
+  delete "/destroy_stall", to: "overview#destroy_stall"
 end
 
 =begin
