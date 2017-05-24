@@ -72,8 +72,12 @@ pt-BR:
       sub: "Entregamos frutas, verduras e orgânicos na sua casa"
       how-it-works: Como funciona a pegalev
       step_1: Passo 1
+      step_1_msg: Pelo seu CEP ou endereço, encontre a feira mais próxima a você. Escolha as frutas, verduras e legumes que serão entregues neste endereço.
       step_2: Passo 2
+      step_2_msg: Com a sua cesta cheia de alimentos fresquinhos, é só escolher um horário de entrega e a forma de pagamento.
       step_3: Passo 3
+      step_3_msg: Receba suas compras em até 48h, mais receitas deliciosas no seu email e um alerta para não deixar nada estragar na geladeira.
+      search: Buscar
 
   activerecord:
     attributes:
