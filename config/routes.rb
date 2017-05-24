@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show] do
     get "/choose_address", to: "confirmation#choose_address"
-    get "/choose_delivery", to: "confirmation#choose_delivery"
     get "/payment", to: "confirmation#payment"
     get "/review", to: "confirmation#review"
   end
