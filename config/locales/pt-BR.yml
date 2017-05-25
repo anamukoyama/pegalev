@@ -63,7 +63,7 @@ pt-BR:
     header:
       sign_in: Entrar
       sign_out: Sair
-      profile: Minha conta
+      profile: Meu perfil
       im_a_seller: Sou Feirante
       overview: Minhas Barracas
   pages:
@@ -78,6 +78,12 @@ pt-BR:
       step_3: Passo 3
       step_3_msg: Receba suas compras em até 48h, mais receitas deliciosas no seu email e um alerta para não deixar nada estragar na geladeira.
       search: Buscar
+  sellers:
+    show:
+      complete_profile: Complete seu perfil
+      edit_destroy_account: Editar ou cancelar minha conta
+    edit:
+      edit: Editar perfil
 
   activerecord:
     attributes:

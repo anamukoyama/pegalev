@@ -1,0 +1,18 @@
+<div class="container fit-header">
+  <div class="col-md-3 col-xs-12">
+    <%= render 'overview/sidebar' %>
+  </div>
+    <div class="col-md-9 col-xs-12">
+      <div class="seller_show">
+        <%= image_tag ("default_avatar.png"), height: 200 %>
+      </div>
+      <div class="col-md-9 col-xs-12">
+        <h3><%= @seller.email %></h3>
+        <p><%= @seller.name %></p>
+        <p>
+          <%= link_to t(".complete_profile"), edit_seller_path(@seller) %> |
+          <%= link_to t(".edit_destroy_account"), edit_seller_registration_path %>
+        </p>
+    </div>
+  </div>
+</div>

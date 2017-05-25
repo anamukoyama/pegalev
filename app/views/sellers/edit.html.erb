@@ -1,0 +1,34 @@
+<div class="container fit-header">
+  <div class="col-md-3 col-xs-12">
+    <%= render 'overview/sidebar' %>
+  </div>
+  <div class="col-md-9 col-xs-12">
+    <div class="seller_show">
+      <%= image_tag ("default_avatar.png"), height: 200 %>
+    </div>
+    <div class="col-md-9 col-xs-12">
+      <h2><%= t(".edit") %></h2>
+      <%= simple_form_for(@seller, as: @seller, url: registration_path(@seller)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :complement %>
+          <%= f.input :zipcode %>
+          <%= f.input :number %>
+          <%= f.input :city %>
+          <%= f.input :state %>
+          <%= f.input :mobile %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, t(".edit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
