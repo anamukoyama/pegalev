@@ -2,25 +2,17 @@
   <div class="banner-content">
     <!-- <h1>Digite seu CEP</h1> -->
     <div class="banner-content-form">
-      <form id="form_search_by_cep" action="/search">
+
+      <%= simple_form_for :search, url: search_path , :method => :get, id:"form_search_by_cep" do |f| %>
         <div class="input-group">
-            <input type="text" name="search_by_cep" class="cep-mask form-control" placeholder="Digite seu cep">
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Buscar</button>
-            </span>
+        <%= f.input_field :search_by_cep, class: "cep-mask form-control", placeholder: "Digite seu cep" %>
+        <span class="input-group-btn">
+        <%= f.submit "Buscar", class: "btn btn-primary" %>
+        </span>
         </div>
-      </form>
+      <% end %>
+
       <%= link_to "Não sei meu cep", id: "btn_search_by_address", class: "banner-content-small text-left" %>
-    </div>
-    <div>
-      <form id="form_search_by_address" action="/search" style="display: none;">
-        <div class="input-group">
-          <input type="text" name="search_by_address" class="form-control" placeholder="Digite seu endereço">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit">Buscar</button>
-          </span>
-        </div>
-      </form>
     </div>
   </div>
 </div>
@@ -41,3 +33,4 @@
     </div>
   </div>
 </div>
+
