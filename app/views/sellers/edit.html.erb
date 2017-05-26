@@ -1,0 +1,35 @@
+<div class="container fit-header">
+  <div class="col-md-3 col-xs-12">
+    <%= render 'overview/sidebar' %>
+  </div>
+  <div class="col-md-9 col-xs-12">
+    <div class="seller_show">
+      <%= image_tag ("default_avatar.png"), height: 200 %>
+    </div>
+    <div class="col-md-9 col-xs-12">
+      <h2><%= t(".edit") %></h2>
+      <%= simple_form_for(@seller) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :name, placeholder: 'Seu nome' %>
+          <%= f.input :mobile, placeholder: '11 98888-9999' %>
+          <%= f.input :delivery, as: :boolean, checked_value: true, unchecked_value: false, hint: 'não selecione caso ainda não faça entregas'%>
+          <%= f.input :zipcode, placeholder: '00000100'%>
+          <%= f.input :address, placeholder: 'Rua Sol' %>
+          <%= f.input :number, placeholder: '123' %>
+          <%= f.input :complement, placeholder: 'Bloco 1 apto 23'  %>
+          <%= f.input :city, placeholder: 'São Paulo'  %>
+          <%= f.input :state, placeholder: 'SP' %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, t(".edit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
