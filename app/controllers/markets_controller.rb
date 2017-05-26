@@ -4,6 +4,8 @@ class MarketsController < ApplicationController
   def search
     @markets = Market.all
     if params[:search_by_cep].present?
+      # armazena num cookie aquele cep
+      session[:cep] = params[:search_by_cep].to_s
       @markets = @markets.near(params[:search_by_cep], 1)
     end
     if @markets.empty?
