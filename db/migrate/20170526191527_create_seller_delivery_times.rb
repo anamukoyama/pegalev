@@ -1,0 +1,8 @@
+class CreateSellerDeliveryTimes < ActiveRecord::Migration[5.0]
+  def change
+    create_table :seller_delivery_times do |t|
+
+      t.timestamps
+    end
+  end
+end
