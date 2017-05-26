@@ -117,6 +117,15 @@ pt-BR:
         mobile: Celular
         address: Endereço
         zipcode: CEP
+        delivery: EU POSSO ENTREGAR MEUS PEDIDOS
+        mobile: Celular
+        address: Endereço
+        complement: Complemento
+        number: Número
+        city: Cidade
+        state: Estado
+        zipcode: CEP
+
       market:
         name: Nome
         inscription: Número de Matrícula
