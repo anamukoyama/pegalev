@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-9 col-xs-12">
       <h2><%= t(".edit") %></h2>
-      <%= simple_form_for(@seller, as: @seller, url: registration_path(@seller)) do |f| %>
+      <%= simple_form_for(@seller) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">

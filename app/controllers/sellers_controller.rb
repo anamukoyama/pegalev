@@ -7,6 +7,14 @@ before_action :set_seller
   def edit
   end
 
+  def update
+    if @seller.update(seller_params)
+      redirect_to seller_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_seller
