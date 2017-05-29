@@ -5,7 +5,8 @@ pt-BR:
       sub:  Escolha uma para fazer sua entrega
       market: "FEIRA "
       at_address: No Endereço
-      choose_this: Eu quero esta!
+      choose_this: Quero esta!
+      show_in_map: Ver onde a feira fica no mapa
   overview:
     index:
       title: Minhas Barracas
