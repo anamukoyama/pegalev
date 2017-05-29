@@ -12,11 +12,20 @@
         <nav class="top-menu">
           <ul>
               <li>
-                <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+                <%= link_to cart_path, class: "btn btn-link" do %>
+                  <i class="fa fa-shopping-basket "></i> <%= "#{current_order.order_items.size} Produtos na cesta ( #{number_to_currency current_order.subtotal} )" %>
+                <% end %>
               </li>
             <% if seller_signed_in? %>
               <li>
-                  <%= link_to t(".overview"), overview_path %>
+                <%= link_to overview_path do %>
+                  <i class="fa fa-university"></i> <%= t(".overview")%>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to seller_path(current_seller) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile")%>
+                <% end %>
               </li>
               <li>
                 <%= link_to(t(".sign_out"), destroy_seller_session_path, :method => :delete) %>

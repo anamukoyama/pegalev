@@ -5,7 +5,8 @@ pt-BR:
       sub:  Escolha uma para fazer sua entrega
       market: "FEIRA "
       at_address: No Endereço
-      choose_this: Eu quero esta!
+      choose_this: Quero esta!
+      show_in_map: Ver onde a feira fica no mapa
   overview:
     index:
       title: Minhas Barracas
@@ -63,10 +64,26 @@ pt-BR:
     header:
       sign_in: Entrar
       sign_out: Sair
-      profile: Minha conta
+      profile: Meu perfil
       im_a_seller: Sou Feirante
       overview: Minhas Barracas
   pages:
+    home:
+      main_msg: "Delivery de comida fresquinha e barata"
+      how-it-works: "Peça frutas e legumes - Como funciona?"
+      step_1: Passo 1
+      step_1_msg: Pelo seu CEP ou endereço, encontre a feira mais próxima a você. Escolha as frutas, verduras e legumes que serão entregues neste endereço.
+      step_2: Passo 2
+      step_2_msg: Com a sua cesta cheia de alimentos fresquinhos, é só escolher um horário de entrega e a forma de pagamento.
+      step_3: Passo 3
+      step_3_msg: Receba suas compras em até 48h, mais receitas deliciosas no seu email e um alerta para não deixar nada estragar na geladeira.
+      search: Buscar
+  sellers:
+    show:
+      complete_profile: Complete seu perfil
+      edit_destroy_account: Editar ou cancelar minha conta
+    edit:
+      edit: Editar perfil
 
   activerecord:
     attributes:
@@ -100,6 +117,15 @@ pt-BR:
         mobile: Celular
         address: Endereço
         zipcode: CEP
+        delivery: EU POSSO ENTREGAR MEUS PEDIDOS
+        mobile: Celular
+        address: Endereço
+        complement: Complemento
+        number: Número
+        city: Cidade
+        state: Estado
+        zipcode: CEP
+
       market:
         name: Nome
         inscription: Número de Matrícula

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517132757) do
+ActiveRecord::Schema.define(version: 20170526191730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20170517132757) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "delivery_times", force: :cascade do |t|
+    t.string   "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "markets", force: :cascade do |t|
@@ -85,6 +91,15 @@ ActiveRecord::Schema.define(version: 20170517132757) do
     t.decimal  "price",       precision: 8, scale: 2
   end
 
+  create_table "seller_delivery_times", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "seller_id"
+    t.integer  "delivery_times_id"
+    t.index ["delivery_times_id"], name: "index_seller_delivery_times_on_delivery_times_id", using: :btree
+    t.index ["seller_id"], name: "index_seller_delivery_times_on_seller_id", using: :btree
+  end
+
   create_table "seller_products", force: :cascade do |t|
     t.integer  "product_id"
     t.datetime "created_at",                         null: false
@@ -119,6 +134,7 @@ ActiveRecord::Schema.define(version: 20170517132757) do
     t.string   "state"
     t.integer  "number"
     t.string   "complement"
+    t.boolean  "delivery"
     t.index ["email"], name: "index_sellers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
   end
@@ -162,6 +178,8 @@ ActiveRecord::Schema.define(version: 20170517132757) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "stalls"
   add_foreign_key "orders", "users"
+  add_foreign_key "seller_delivery_times", "delivery_times", column: "delivery_times_id"
+  add_foreign_key "seller_delivery_times", "sellers"
   add_foreign_key "seller_products", "products"
   add_foreign_key "stalls", "markets"
   add_foreign_key "stalls", "sellers"
