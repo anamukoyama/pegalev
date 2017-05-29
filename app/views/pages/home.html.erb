@@ -4,50 +4,47 @@
     <div class="banner-content-form">
 
 
-<!-- ############################################################# -->
+      <form action=<%=search_path%> method="get" name="search" class="fancy-form">
 
+        <fieldset>
+          <legend>Address</legend>
+          <p class="instructions">Start by entering your zip code.</p>
+          <div>
+            <div>
+              <label for="street">Street</label>
+              <input type="text" name="street_user" id="street_user">
+            </div>
+          </div>
+          <div>
+            <div>
+              <label for="complement">Complement</label>
+              <input type="text" name="complement_user" id="complment_user">
+            </div>
+          </div>
+          <div>
+            <div class="city-wrap">
+              <label for="city">City</label>
+              <input type="text" name="city_user" id="city_user" style="width:220px;">
+            </div>
+            <div class="zip-wrap">
+              <label for="zip">Zip</label>
+              <input type="text" pattern="[0-9]*" maxlength="8" required name="zip_user" id="zip_user" style="width:100px;">
+            </div>
+            <div class="state-wrap">
+              <label for="state">State</label>
+              <input type="text" name="state_user" id="state_user" style="width:50px;">
+              <label for="number">Number</label>
+              <input type="text" name="number_user" id="number_user" style="width:50px;">
+            </div>
+          </div>
 
-<form action=<%=search_path%> method="get" class="fancy-form">
+          <div class="submit-wrap">
+            <input type="submit" value="Submit" class="btn btn-primary">
+          </div>
 
-  <fieldset>
-    <legend>Address</legend>
-    <p class="instructions">Start by entering your zip code.</p>
-    <div>
-      <div>
-        <label for="street">Street</label>
-        <input type="text" name="street_user" id="street_user">
-      </div>
-    </div>
-    <div>
-      <div>
-        <label for="complement">Complement</label>
-        <input type="text" name="complement_user" id="complment_user">
-      </div>
-    </div>
-    <div>
-      <div class="city-wrap">
-        <label for="city">City</label>
-        <input type="text" name="city_user" id="city_user" style="width:220px;">
-      </div>
-      <div class="zip-wrap">
-        <label for="zip">Zip</label>
-        <input type="text" pattern="[0-9]*" maxlength="8" required name="zip_user" id="zip_user" style="width:100px;">
-      </div>
-      <div class="state-wrap">
-        <label for="state">State</label>
-        <input type="text" name="state_user" id="state_user" style="width:50px;">
-        <label for="number">Number</label>
-        <input type="text" name="number_user" id="number_user" style="width:50px;">
-      </div>
-    </div>
+        </fieldset>
 
-    <div class="submit-wrap">
-      <input type="submit" value="Submit" class="btn btn-primary">
-    </div>
-
-  </fieldset>
-
-</form>
+      </form>
 
 
 

@@ -3,11 +3,10 @@ class MarketsController < ApplicationController
 
   def search
     @markets = Market.all
-    if params[:search][:postal_code].present?
-      # armazena num cookie aquele cep
-      session[:cep] = params[:search][:postal_code].to_s
-      @markets = @markets.near(params[:search][:postal_code], 1)
-    end
+    #if params[:street_user].present?
+    get_coockies(params)
+    @markets = @markets.near(params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user], 1)
+    #end
     if @markets.empty?
       flash[:alert] = "Não existem feiras próximas a este cep"
       redirect_to root_path
@@ -45,6 +44,16 @@ class MarketsController < ApplicationController
     else
       @today = "DOMINGO"
     end
+  end
+
+  def get_coockies(params)
+    session[:cep] = params[:zip_user].to_s
+    session[:rua] = params[:street_user].to_s
+    session[:estado] = params[:state_user].to_s
+    session[:cidade] = params[:city_user].to_s
+    session[:complemento] = params[:complement_user].to_s
+    session[:numero] = params[:number_user].to_s
+    true
   end
 
   def sellers_by_product
