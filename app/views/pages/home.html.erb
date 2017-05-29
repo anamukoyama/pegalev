@@ -1,6 +1,7 @@
 <div class="banner">
   <div class="banner-content">
     <div class="banner-content-form">
+      <h3><%=t('.main_msg')%> </h3>
       <form id="form_search_by_cep" action="/search">
         <div class="input-group">
             <input type="text" name="search_by_cep" class="cep-mask form-control" placeholder="Digite o CEP da entrega">
@@ -28,15 +29,15 @@
   <h2><%=t('.how-it-works')%> </h2>
   <div class="row">
     <div class="col-sm-4">
-      <h3><%=t('.step_1')%></h3>
+      <h3><i class="fa fa-map-marker"></i> <%=t('.step_1')%></h3>
       <p><%=t('.step_1_msg')%></p>
     </div>
     <div class="col-sm-4">
-      <h3><%=t('.step_2')%></h3>
+      <h3><i class="fa fa-clock-o"></i> <%=t('.step_2')%></h3>
       <p><%=t('.step_2_msg')%></p>
     </div>
     <div class="col-sm-4">
-      <h3><%=t('.step_3')%></h3>
+      <h3><i class="fa fa-home"></i> <%=t('.step_3')%></h3>
       <p><%=t('.step_3_msg')%></p>
     </div>
   </div>

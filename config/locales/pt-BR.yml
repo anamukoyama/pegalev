@@ -5,7 +5,8 @@ pt-BR:
       sub:  Escolha uma para fazer sua entrega
       market: "FEIRA "
       at_address: No Endereço
-      choose_this: Eu quero esta!
+      choose_this: Quero esta!
+      show_in_map: Ver onde a feira fica no mapa
   overview:
     index:
       title: Minhas Barracas
@@ -69,8 +70,7 @@ pt-BR:
   pages:
     home:
       main_msg: "Delivery de comida fresquinha e barata"
-      sub: "Entregamos frutas, verduras e orgânicos na sua casa"
-      how-it-works: Como funciona a pegalev
+      how-it-works: "Peça frutas e legumes - Como funciona?"
       step_1: Passo 1
       step_1_msg: Pelo seu CEP ou endereço, encontre a feira mais próxima a você. Escolha as frutas, verduras e legumes que serão entregues neste endereço.
       step_2: Passo 2

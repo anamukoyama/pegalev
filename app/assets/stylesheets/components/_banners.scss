@@ -5,7 +5,7 @@
   background-position: center;
   min-height: 500px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   .banner-content {
@@ -17,7 +17,8 @@
       font-size: 3em;
     }
     h3 {
-      font-size: 2em;
+      font-size: 2.5em;
+      padding-bottom: 5px;
     }
 
     .banner-content-form-wrapper {
