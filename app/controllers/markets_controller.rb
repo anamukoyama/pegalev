@@ -3,10 +3,10 @@ class MarketsController < ApplicationController
 
   def search
     @markets = Market.all
-    #if params[:street_user].present?
-    get_coockies(params)
-    @markets = @markets.near(params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user], 1)
-    #end
+    if params[:city_user] && params[:street_user] && params[:number_user].present?
+      get_coockies(params)
+      @markets = @markets.near(params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user], 1)
+    end
     if @markets.empty?
       flash[:alert] = "Não existem feiras próximas a este cep"
       redirect_to root_path
