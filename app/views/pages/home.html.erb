@@ -28,7 +28,8 @@
             </div>
             <div class="zip-wrap">
               <label for="zip">Zip</label>
-              <input type="text" pattern="[0-9]*" maxlength="8" required name="zip_user" id="zip_user" style="width:100px;">
+              <!--<input type="text" pattern="[0-9]*" maxlength="8" required name="zip_user" id="zip_user" style="width:100px;">-->
+               <input type="text" required name="zip_user" id="zip_user" style="width:100px;" class="cep-mask">
             </div>
             <div class="state-wrap">
               <label for="state">State</label>
@@ -63,52 +64,34 @@ $("#zip_user").keyup(function() {
 
   // Cache
   var el = $(this);
-
-  // Did they type five integers?
-  if ((el.val().length == 8) && (is_int(el.val()))) {
-
-    // Call Ziptastic for information
+  //console.log(el.val());
+  var flat_string = el.val().replace (/-/g, "");
+  console.log(flat_string);
+  if ((flat_string.length == 8) && (is_int(flat_string))) {
     $.ajax({
-      //url: "https://zip.getziptastic.com/v2/US/" + el.val(),
-      url: "https://viacep.com.br/ws/"+el.val()+"/json",
-      //url: "https://viacep.com.br/ws/45028170/json",
+      url: "https://viacep.com.br/ws/"+flat_string+"/json",
       cache: false,
       dataType: "json",
       type: "GET",
       success: function(result, success) {
-
-        console.log(result);
-
         //$(".zip-error, .instructions").slideUp(200);
-
         $("#street_user").val(result.logradouro);
-
         $("#complement_user").val(result.complemento);
-
-        //$("#city").val(result.city);
         $("#city_user").val(result.localidade);
-
-        //$("#state").val(result.state);
         $("#state_user").val(result.uf);
-
         $(".fancy-form div > div").slideDown();
-
         $( ".submit-wrap" ).show();
-
         $("#zip_user").blur();
         //$("#street").show().focus();
-
       },
       //error: function(result, success) {
       //  $(".zip-error").slideDown(300);
       //}
-
     });
 
   } //else if (el.val().length < 5) {
     //$(".zip-error").slideUp(200);
   //};
-
 });
 </script>
 
