@@ -3,10 +3,10 @@ class MarketsController < ApplicationController
 
   def search
     @markets = Market.all
-    if params[:search][:search_by_cep].present?
+    if params[:search][:postal_code].present?
       # armazena num cookie aquele cep
-      session[:cep] = params[:search][:search_by_cep].to_s
-      @markets = @markets.near(params[:search][:search_by_cep], 1)
+      session[:cep] = params[:search][:postal_code].to_s
+      @markets = @markets.near(params[:search][:postal_code], 1)
     end
     if @markets.empty?
       flash[:alert] = "Não existem feiras próximas a este cep"
@@ -58,7 +58,8 @@ class MarketsController < ApplicationController
   end
 
   def market_params
-     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude)
+     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude,
+                                    :postal_code, :locality, :administrative_area_level_1, :street_number)
   end
 end
 
