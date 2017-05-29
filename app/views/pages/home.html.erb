@@ -2,10 +2,7 @@
   <div class="banner-content">
     <!-- <h1>Digite seu CEP</h1> -->
     <div class="banner-content-form">
-
-
       <form action=<%=search_path%> method="get" name="search" class="fancy-form">
-
         <fieldset>
           <legend>Address</legend>
           <p class="instructions">Start by entering your zip code.</p>
@@ -38,85 +35,11 @@
               <input type="text" name="number_user" id="number_user" style="width:50px;">
             </div>
           </div>
-
           <div class="submit-wrap">
             <input type="submit" value="Submit" class="btn btn-primary">
           </div>
-
         </fieldset>
-
       </form>
-
-
-
-<script>
-function is_int(value) {
-  if ((parseFloat(value) == parseInt(value)) && !isNaN(value)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-$(".fancy-form div > div").hide();
-
-$("#zip_user").keyup(function() {
-
-  // Cache
-  var el = $(this);
-  //console.log(el.val());
-  var flat_string = el.val().replace (/-/g, "");
-  console.log(flat_string);
-  if ((flat_string.length == 8) && (is_int(flat_string))) {
-    $.ajax({
-      url: "https://viacep.com.br/ws/"+flat_string+"/json",
-      cache: false,
-      dataType: "json",
-      type: "GET",
-      success: function(result, success) {
-        //$(".zip-error, .instructions").slideUp(200);
-        $("#street_user").val(result.logradouro);
-        $("#complement_user").val(result.complemento);
-        $("#city_user").val(result.localidade);
-        $("#state_user").val(result.uf);
-        $(".fancy-form div > div").slideDown();
-        $( ".submit-wrap" ).show();
-        $("#zip_user").blur();
-        //$("#street").show().focus();
-      },
-      //error: function(result, success) {
-      //  $(".zip-error").slideDown(300);
-      //}
-    });
-
-  } //else if (el.val().length < 5) {
-    //$(".zip-error").slideUp(200);
-  //};
-});
-</script>
-
-
-<!-- ############################################################################ -->
-
-
-
-      <%#= simple_form_for :search, url: search_path , :method => :get do |f| %>
-        <!--<div class="input-group">-->
-        <%#= f.input_field :search_by_cep, class: "cep-mask form-control", placeholder: "Digite seu cep", id:"autocomplete" %>
-        <%#= f.input_field :postal_code, id: "postal_code", disabled: "true", placeholder: "CEP", required: true %>
-        <%#= f.input_field :route, id: "route", disabled: "true", placeholder: "Rua", required: true %>
-        <%#= f.input_field :locality, id: "locality", disabled: "true", placeholder: "Cidade", required: true %>
-        <%#= f.input_field :administrative_area_level_1, id: "administrative_area_level_1", disabled: "true", placeholder: "Estado", required: true %>
-        <!-- obs: manter o "as: :text" para que o simple_form entenda que "country" não é um "select", pois ele parece cobrar assim por default -->
-        <%#= f.input_field :country, id: "country", as: :text, disabled: "true", placeholder: "País", required: true %>
-        <%#= f.input_field :street_number, id: "street_number", disabled: "true", placeholder: "Número", required: true %>
-        <span class="input-group-btn">
-          <%#= f.submit "Buscar", class: "btn btn-primary" %>
-        </span>
-        <!--</div>-->
-      <%# end %>
-
-      <%#= render 'search_cep' %>
     </div>
   </div>
 </div>
