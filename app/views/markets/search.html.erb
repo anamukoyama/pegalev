@@ -1,3 +1,8 @@
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %>
+      </div>
+<% end %>
 <div class="container fit-header">
   <h1> <%=t('.title')%> </h1>
   <h3> <%=t('.sub')%> </h3>

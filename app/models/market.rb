@@ -3,5 +3,7 @@ class Market < ApplicationRecord
   has_many :stalls
   has_many :sellers, through: :stalls
   after_validation :geocode, if: :address_changed?
-  # validates :street_number, presence: true
+
+  attr_accessor :city_user, :state_user, :street_user, :number_user, :complement_user
+  validates :city_user, :state_user, :street_user, :number_user, presence: true
 end
