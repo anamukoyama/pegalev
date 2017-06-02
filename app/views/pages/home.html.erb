@@ -1,3 +1,8 @@
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %>
+      </div>
+<% end %>
 <div class="banner">
   <div class="banner-content">
     <div class="banner-content-form">
@@ -8,7 +13,7 @@
           <p class="instructions">Start by entering your zip code.</p>
           <div>
             <div>
-              <label for="street">Street</label>
+              <label for="street">Street*</label>
               <input type="text" name="street_user" id="street_user">
             </div>
           </div>
@@ -20,7 +25,7 @@
           </div>
           <div>
             <div class="city-wrap">
-              <label for="city">City</label>
+              <label for="city">City*</label>
               <input type="text" name="city_user" id="city_user" style="width:220px;">
             </div>
             <div class="zip-wrap">
@@ -29,9 +34,9 @@
                <input type="text" required name="zip_user" id="zip_user" style="width:100px;" class="cep-mask">
             </div>
             <div class="state-wrap">
-              <label for="state">State</label>
+              <label for="state">State*</label>
               <input type="text" name="state_user" id="state_user" style="width:50px;">
-              <label for="number">Number</label>
+              <label for="number">Number*</label>
               <input type="text" name="number_user" id="number_user" style="width:50px;">
             </div>
           </div>

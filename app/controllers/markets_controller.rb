@@ -3,19 +3,22 @@ class MarketsController < ApplicationController
 
   def search
     @markets = Market.all
-    if params[:city_user] && params[:street_user] && params[:number_user].present?
+    if params[:state_user] && params[:city_user] && params[:street_user] && params[:number_user].present?
       get_coockies(params)
-      @markets = @markets.near(params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user], 1)
-    end
-    if @markets.empty?
-      flash[:alert] = "Não existem feiras próximas a este cep"
+      string_search = params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user]
+      @markets = @markets.near(string_search, 1)
+      if @markets.empty?
+        flash[:alert] = "Não existem feiras próximas a este cep"
+        redirect_to root_path
+      end
+      @markets = @markets.where.not(latitude: nil, longitude: nil, weekday: @today)
+      @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
+        marker.lat market.latitude
+        marker.lng market.longitude
+      end
+    else
       redirect_to root_path
-    end
-
-    @markets = @markets.where.not(latitude: nil, longitude: nil, weekday: @today)
-    @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
-      marker.lat market.latitude
-      marker.lng market.longitude
+      flash[:alert] = "Você precisa preencher todos os campos com asterisco(*) para a busca!"
     end
   end
 
@@ -64,11 +67,6 @@ class MarketsController < ApplicationController
       end
     end
     product_seller.group_by(&:first).map { |fruit, pairs| [fruit, pairs.map(&:last)] }
-  end
-
-  def market_params
-     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude,
-                                    :postal_code, :locality, :administrative_area_level_1, :street_number)
   end
 end
 
