@@ -2,24 +2,43 @@
   <div class="banner-content">
     <div class="banner-content-form">
       <h3><%=t('.main_msg')%> </h3>
-      <form id="form_search_by_cep" action="/search">
-        <div class="input-group">
-            <input type="text" name="search_by_cep" class="cep-mask form-control" placeholder="Digite o CEP da entrega">
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit"><%=t('.search')%></button>
-            </span>
-        </div>
-      </form>
-      <%= link_to "Não sabe o cep? Digite o endereço da entrega", id: "btn_search_by_address", class: "banner-content-small text-left" %>
-    </div>
-    <div>
-      <form id="form_search_by_address" action="/search" style="display: none;">
-        <div class="input-group">
-          <input type="text" name="search_by_address" class="form-control" placeholder="Digite seu endereço">
-          <span class="input-group-btn">
+      <form action=<%=search_path%> method="get" name="search" class="fancy-form">
+        <fieldset>
+          <legend>Address</legend>
+          <p class="instructions">Start by entering your zip code.</p>
+          <div>
+            <div>
+              <label for="street">Street</label>
+              <input type="text" name="street_user" id="street_user">
+            </div>
+          </div>
+          <div>
+            <div>
+              <label for="complement">Complement</label>
+              <input type="text" name="complement_user" id="complment_user">
+            </div>
+          </div>
+          <div>
+            <div class="city-wrap">
+              <label for="city">City</label>
+              <input type="text" name="city_user" id="city_user" style="width:220px;">
+            </div>
+            <div class="zip-wrap">
+              <label for="zip">Zip</label>
+              <!--<input type="text" pattern="[0-9]*" maxlength="8" required name="zip_user" id="zip_user" style="width:100px;">-->
+               <input type="text" required name="zip_user" id="zip_user" style="width:100px;" class="cep-mask">
+            </div>
+            <div class="state-wrap">
+              <label for="state">State</label>
+              <input type="text" name="state_user" id="state_user" style="width:50px;">
+              <label for="number">Number</label>
+              <input type="text" name="number_user" id="number_user" style="width:50px;">
+            </div>
+          </div>
+          <div class="submit-wrap">
             <button class="btn btn-primary" type="submit"><%=t('.search')%><</button>
-          </span>
-        </div>
+          </div>
+        </fieldset>
       </form>
     </div>
   </div>
@@ -42,3 +61,4 @@
     </div>
   </div>
 </div>
+

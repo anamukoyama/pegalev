@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show] do
     get "/choose_address", to: "confirmation#choose_address"
-    get "/choose_delivery", to: "confirmation#choose_delivery"
     get "/payment", to: "confirmation#payment"
     get "/review", to: "confirmation#review"
   end
@@ -37,7 +36,7 @@ Rails.application.routes.draw do
 end
 
 =begin
-                     Prefix Verb   URI Pattern                                Controller#Action
+ntroller#Action
                  carts_show GET    /carts/show(.:format)                      carts#show
                  admin_root GET    /admin(.:format)                           admin/dashboard#index
  batch_action_admin_sellers POST   /admin/sellers/batch_action(.:format)      admin/sellers#batch_action
@@ -124,6 +123,9 @@ batch_action_admin_products POST   /admin/products/batch_action(.:format)     ad
                      search GET    /search(.:format)                          markets#search
              market_product GET    /markets/:market_id/products/:id(.:format) products#show
                      market GET    /markets/:id(.:format)                     markets#show
+        choose_address_cart GET    /cart/choose_address(.:format)             confirmation#choose_address
+               payment_cart GET    /cart/payment(.:format)                    confirmation#payment
+                review_cart GET    /cart/review(.:format)                     confirmation#review
                        cart GET    /cart(.:format)                            carts#show
                 order_items POST   /order_items(.:format)                     order_items#create
                  order_item PATCH  /order_items/:id(.:format)                 order_items#update

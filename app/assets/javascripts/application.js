@@ -24,3 +24,4 @@
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
 //= require bootstrap-sass/assets/javascripts/bootstrap
+//= require autofill_search

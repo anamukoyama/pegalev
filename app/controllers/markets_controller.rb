@@ -3,8 +3,9 @@ class MarketsController < ApplicationController
 
   def search
     @markets = Market.all
-    if params[:search_by_cep].present?
-      @markets = @markets.near(params[:search_by_cep], 1)
+    if params[:city_user] && params[:street_user] && params[:number_user].present?
+      get_coockies(params)
+      @markets = @markets.near(params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user], 1)
     end
     if @markets.empty?
       flash[:alert] = "Não existem feiras próximas a este cep"
@@ -45,6 +46,16 @@ class MarketsController < ApplicationController
     end
   end
 
+  def get_coockies(params)
+    session[:cep] = params[:zip_user].to_s
+    session[:rua] = params[:street_user].to_s
+    session[:estado] = params[:state_user].to_s
+    session[:cidade] = params[:city_user].to_s
+    session[:complemento] = params[:complement_user].to_s
+    session[:numero] = params[:number_user].to_s
+    true
+  end
+
   def sellers_by_product
     product_seller = []
     @market.sellers.each do |seller|
@@ -56,7 +67,8 @@ class MarketsController < ApplicationController
   end
 
   def market_params
-     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude)
+     params.require(:market).permit(:address, :inscription, :name, :weekday, :latitude, :longitude,
+                                    :postal_code, :locality, :administrative_area_level_1, :street_number)
   end
 end
 
