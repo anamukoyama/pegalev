@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517132757) do
+ActiveRecord::Schema.define(version: 20170602142409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20170517132757) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "delivery_times", force: :cascade do |t|
+    t.string "time"
+  end
+
+  create_table "delivery_times_sellers", id: false, force: :cascade do |t|
+    t.integer "seller_id",        null: false
+    t.integer "delivery_time_id", null: false
+    t.index ["delivery_time_id"], name: "index_delivery_times_sellers_on_delivery_time_id", using: :btree
+    t.index ["seller_id"], name: "index_delivery_times_sellers_on_seller_id", using: :btree
   end
 
   create_table "markets", force: :cascade do |t|
@@ -119,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170517132757) do
     t.string   "state"
     t.integer  "number"
     t.string   "complement"
+    t.boolean  "delivery"
     t.index ["email"], name: "index_sellers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
   end
