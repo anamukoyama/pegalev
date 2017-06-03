@@ -7,14 +7,15 @@ class MarketsController < ApplicationController
       get_coockies(params)
       string_search = params[:city_user]+" "+params[:state_user]+" "+params[:street_user]+" "+params[:number_user]
       @markets = @markets.near(string_search, 1)
+      @markets = @markets.where.not(latitude: nil, longitude: nil, weekday: @today)
       if @markets.empty?
         flash[:alert] = "Não existem feiras próximas a este cep"
         redirect_to root_path
-      end
-      @markets = @markets.where.not(latitude: nil, longitude: nil, weekday: @today)
-      @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
+      else
+        @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
         marker.lat market.latitude
         marker.lng market.longitude
+        end
       end
     else
       redirect_to root_path
