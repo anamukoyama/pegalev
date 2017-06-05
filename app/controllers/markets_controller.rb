@@ -25,6 +25,7 @@ class MarketsController < ApplicationController
 
   def show
     @market = Market.find(params[:id])
+    @order_item = current_order.order_items.new
     # variavel recebe valor do metodo 'sellers_by_product'
     @sellers_by_product = sellers_by_product
   end

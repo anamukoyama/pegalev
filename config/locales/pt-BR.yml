@@ -7,6 +7,8 @@ pt-BR:
       at_address: No Endereço
       choose_this: Quero esta!
       show_in_map: Ver onde a feira fica no mapa
+    show:
+      add_cart: Adicionar ao carrinho
   overview:
     index:
       title: Minhas Barracas
@@ -58,6 +60,7 @@ pt-BR:
       price_set_by: Preço por
       cta: Adicionar a cesta
       buy_more: "Que tal levar também:"
+      add_cart: Adicionar ao carrinho
     _product_form:
       product_example: "Ex: Morango"
   shared:
