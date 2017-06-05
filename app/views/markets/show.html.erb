@@ -25,10 +25,11 @@
           <br>
           <!-- adiciona o produto no carrinho -->
       <% end %>
-      <%= form_for @order_item do |f| %>
-        <%= f.hidden_field :stall_id, value: sellers.sample.stalls.where(market_id: @market.id).first.id %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, value: "1" %>
+      <!-- será adicionado no carrinho de um 'random' de sellers daquela feira que possui aquele produto disponível -->
+      <%= simple_form_for @order_item do |f| %>
+        <%= f.input :stall_id, as: :hidden, :input_html => {:value => sellers.sample.stalls.where(market_id: @market.id).first.id} %>
+        <%= f.input :product_id, as: :hidden, :input_html => {:value => product.id} %>
+        <%= f.input :quantity, as: :hidden, collection: 1..12, selected:1%>
         <%= f.submit "Add to cart" %>
       <% end %>
 
