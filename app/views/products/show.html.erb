@@ -12,7 +12,7 @@
           <%= f.input :stall_id, as: :hidden, :input_html => {:value => @stall.id } %>
           <%= f.input :product_id, as: :hidden, :input_html => {:value => @product.id} %>
           <%= f.input_field :quantity, collection: 1..12, selected:1%>
-          <%= f.submit "Add to cart" %>
+          <%= f.submit t('.add_cart') %>
         <% end %>
       </div>
     </div>

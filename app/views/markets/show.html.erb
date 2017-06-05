@@ -30,7 +30,7 @@
         <%= f.input :stall_id, as: :hidden, :input_html => {:value => sellers.sample.stalls.where(market_id: @market.id).first.id} %>
         <%= f.input :product_id, as: :hidden, :input_html => {:value => product.id} %>
         <%= f.input :quantity, as: :hidden, collection: 1..12, selected:1%>
-        <%= f.submit "Add to cart" %>
+        <%= f.submit t('.add_cart') %>
       <% end %>
 
     <% end %>
