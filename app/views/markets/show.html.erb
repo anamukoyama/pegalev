@@ -23,6 +23,13 @@
           <br>
           <%= product.name %>
           <br>
+          <!-- adiciona o produto no carrinho -->
+      <% end %>
+      <%= form_for @order_item do |f| %>
+        <%= f.hidden_field :stall_id, value: sellers.sample.stalls.where(market_id: @market.id).first.id %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, value: "1" %>
+        <%= f.submit "Add to cart" %>
       <% end %>
 
     <% end %>
