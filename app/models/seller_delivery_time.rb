@@ -1,2 +1,0 @@
-class SellerDeliveryTime < ApplicationRecord
-end
