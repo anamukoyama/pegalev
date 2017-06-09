@@ -38,7 +38,7 @@ private
       end
     end
     if answer
-      @item = @order.order_items.new(quantity: qty, product_id: id)
+      @item = @order.order_items.new(order_params)
       @item.unit_price = @item.product.price
     end
   end
