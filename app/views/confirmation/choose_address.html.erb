@@ -1,7 +1,39 @@
-<h1>Your address</h1>
-
-<%= @street %>
-
-<br>
-
-<%= @district %>
+<div class="wrapper-cart-details">
+  <div class="container fit-header">
+    <div class="row">
+      <h1><%=t('.title')%></h1>
+      <div class="cart-details">
+        <div class="cart-itens col-md-6 col-xs-12">
+          <h3><%=t('.your_list_is')%></h3>
+          <p> ALFACE - 2 unidades por R$3,00</p>
+          <p> MORANGO - 1 caixa por R$3,00</p>
+          <p> ABACAXI - 1 unidade por R$4,00</p>
+          <h3> Total a pagar R$10,00</h3>
+        </div>
+        <div class="cart-address col-md-6 col-xs-12">
+          <h3> <%=t('.your_delivery_address')%> </h3>
+          <p><%= @street %>, <%= @number %> - <%= @district %></p>
+          <h3> <%=t('.choose_a_delivery_time')%> </h3>
+          <div class="tag-list">
+            <span>7 as 9hs</span>
+            <span>9 as 11hs</span>
+            <span>11 as 13hs</span>
+            <span>19 as 21hs</span>
+            <span>21 as 23hs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper-pay">
+  <div class="container">
+    <div class="row">
+      <div class="payment-details container col-xs-12">
+        <h2><%=t('.payment-method')%></h2>
+        <p><%=t('.disclaimer')%></p>
+        <h4> Precisa de troco? </h4>
+      </div>
+    </div>
+  </div>
+</div>
