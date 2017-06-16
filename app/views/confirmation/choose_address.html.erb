@@ -5,16 +5,18 @@
       <div class="cart-details">
         <div class="cart-itens col-md-6 col-xs-12">
           <h3><%=t('.your_list_is')%></h3>
-          <p> ALFACE - 2 unidades por R$3,00</p>
+          <!-- Trazer aqui os produtos + unidades + preco total -->
           <p> MORANGO - 1 caixa por R$3,00</p>
           <p> ABACAXI - 1 unidade por R$4,00</p>
           <h3> Total a pagar R$10,00</h3>
         </div>
         <div class="cart-address col-md-6 col-xs-12">
+          <!-- Trazer o endereco completo -->
           <h3> <%=t('.your_delivery_address')%> </h3>
-          <p><%= @street %>, <%= @number %> - <%= @district %></p>
+          <p><%= @street %>, <%= @number %> - <%= @district %>, <%= @city %></p>
           <h3> <%=t('.choose_a_delivery_time')%> </h3>
           <div class="tag-list">
+            <!-- Estes horários devem ser uma escolha única -->
             <span>7 as 9hs</span>
             <span>9 as 11hs</span>
             <span>11 as 13hs</span>
@@ -32,7 +34,8 @@
       <div class="payment-details container col-xs-12">
         <h2><%=t('.payment-method')%></h2>
         <p><%=t('.disclaimer')%></p>
-        <h4> Precisa de troco? </h4>
+        <!-- Incluir aqui um campo para pegarmos o troco  -->
+        <h4> Precisa de troco pra quanto? </h4>
       </div>
     </div>
   </div>
