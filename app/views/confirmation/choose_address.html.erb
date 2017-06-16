@@ -8,10 +8,10 @@
            <!-- Trazer aqui os produtos + unidades + preco total -->
 
            <% current_order.order_items.each do |item| %>
-            <p> <%= item.product.name %> - <%= item.quantity %> caixa por R$<%= item.total_price %></p>
+            <p> <%= item.product.name.capitalize %> - <%= item.quantity %> caixa por <%= number_to_currency(item.total_price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
            <% end %>
 
-           <h3> Total a pagar R$<%= current_order.total %></h3>
+           <h3> Total a pagar <%= number_to_currency(current_order.total, :unit => "R$ ", :separator => ",", :delimiter => ".") %></h3>
          </div>
          <div class="cart-address col-md-6 col-xs-12">
            <!-- Trazer o endereco completo -->
