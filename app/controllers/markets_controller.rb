@@ -52,6 +52,7 @@ class MarketsController < ApplicationController
   end
 
   def get_coockies(params)
+    session[:bairro] = params[:district_user].to_s
     session[:cep] = params[:zip_user].to_s
     session[:rua] = params[:street_user].to_s
     session[:estado] = params[:state_user].to_s

@@ -24,6 +24,7 @@ $("#zip_user").keyup(function() {
       success: function(result, success) {
         //$(".zip-error, .instructions").slideUp(200);
         $("#street_user").val(result.logradouro);
+        $("#district_user").val(result.bairro);
         $("#complement_user").val(result.complemento);
         $("#city_user").val(result.localidade);
         $("#state_user").val(result.uf);

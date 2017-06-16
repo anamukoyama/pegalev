@@ -1,4 +1,12 @@
 pt-BR:
+  confirmation:
+    choose_address:
+      title: Revisão da compra
+      your_list_is: "Na sua cesta temos:"
+      your_delivery_address: "O endereço de entrega será:"
+      choose_a_delivery_time: "A entrega será feita em até 48hs. Escolha em qual horário:"
+      payment-method: "Dados para pagamento"
+      disclaimer: "Por enquanto o pagamento só pode ser feito em dinheiro no ato da entrega. Mas já estamos trabalhando para aceitar outras opções."
   markets:
     search:
       title: Estas são as feiras mais próximas a você
