@@ -6,9 +6,12 @@
          <div class="cart-itens col-md-6 col-xs-12">
            <h3><%=t('.your_list_is')%></h3>
            <!-- Trazer aqui os produtos + unidades + preco total -->
-           <p> MORANGO - 1 caixa por R$3,00</p>
-           <p> ABACAXI - 1 unidade por R$4,00</p>
-           <h3> Total a pagar R$10,00</h3>
+
+           <% current_order.order_items.each do |item| %>
+            <p> <%= item.product.name %> - <%= item.quantity %> caixa por R$<%= item.total_price %></p>
+           <% end %>
+
+           <h3> Total a pagar R$<%= current_order.total %></h3>
          </div>
          <div class="cart-address col-md-6 col-xs-12">
            <!-- Trazer o endereco completo -->
