@@ -11,6 +11,8 @@
       <div class="order-card">
         <% current_seller.stalls.each do |stall| %>
           <% stall.orders.each do |order| %>
+          <div class="order-inner-card">
+              <%= order.created_at %>
               <% unless order.user == nil %>
                   <h2>Lista de <% order.user.first_name  %></h2>
                 <% end %>
@@ -18,8 +20,9 @@
                 <p><%= item.quantity %> x <%= item.product.name %> (total price: <%= item.total_price %>)</p>
               <% end %>
               <h3>TOTAL: <%= order.total %></h3>
-              <h3> <%= stall.market.name %> </h3>
+              <h3>Proximidade: <%= stall.market.name %> </h3>
               <h4>Horário de entrega entre 9 e 11h na TERÇA</h4>
+          </div>
               <br><br>
           <% end %>
         <% end %>
