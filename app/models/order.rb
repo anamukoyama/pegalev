@@ -14,8 +14,9 @@ class Order < ApplicationRecord
 
   private
 
-  def set_order_status
-    self.order_statuses_id = 1
+  @status = ["in progress", "placed", "shipped", "canceled"]
+  def self.status
+    @status
   end
 
   def update_total

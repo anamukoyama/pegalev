@@ -1,24 +1,33 @@
-<div class="container fit-header">
+<div class="container fit-header" style="min-height: 100vh;">
   <div class="col-md-3 col-xs-12">
     <%= render '/overview/sidebar' %>
   </div>
+
   <div class="col-md-9 col-xs-12">
     <div class="seller_orders">
+
       <h3><%=t('.seller_orders')%></h3>
+      <!-- Puxar as ordens de cada barraca que este feirante trabalha -->
       <div class="order-card">
-        <h2> Lista da ANA </h2>
-        <input type="checkbox" value="">Feito a entrega</label>
-        <p> 1kg de Banana, 2 bandejas de Morango, 1KG de Laranja Lima</p>
-        <h3> Feira da VILA PALMEIRAS na TERÇA </h3>
-        <h4>Horário de entrega entre 9 e 11h na TERÇA</h4>
+        <% current_seller.stalls.each do |stall| %>
+          <% stall.orders.each do |order| %>
+          <div class="order-inner-card">
+              <%= order.created_at %>
+              <% unless order.user == nil %>
+                  <h2>Lista de <% order.user.first_name  %></h2>
+                <% end %>
+              <% order.order_items.each do |item| %>
+                <p><%= item.quantity %> x <%= item.product.name %> (total price: <%= item.total_price %>)</p>
+              <% end %>
+              <h3>TOTAL: <%= order.total %></h3>
+              <h3>Proximidade: <%= stall.market.name %> </h3>
+              <h4>Horário de entrega entre 9 e 11h na TERÇA</h4>
+          </div>
+              <br><br>
+          <% end %>
+        <% end %>
       </div>
-      <div class="order-card">
-        <h2> Lista da Eliana </h2>
-        <input type="checkbox" value="">Feito a entrega</label>
-        <p> 1kg de Maça e 1 pé de Brócolis </p>
-        <h3> Feira do JARAGUA no DOMINGO </h3>
-        <h4>Horário de entrega entre 11 e 13h no DOMINGO</h4>
-      </div>
+
     </div>
   </div>
 </div>
