@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619141832) do
+ActiveRecord::Schema.define(version: 20170619142723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170619141832) do
     t.string   "ship_address"
     t.string   "bill_address"
     t.string   "order_number"
+    t.string   "status"
     t.index ["stall_id"], name: "index_orders_on_stall_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
