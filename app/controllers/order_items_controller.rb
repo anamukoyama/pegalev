@@ -1,15 +1,21 @@
 class OrderItemsController < ApplicationController
   def create
     # esta ordem é a ordem corrente que pode ser a já criada ou é criada uma nova
-    @order = current_order
-    @order.stall_id = order_params["stall_id"].to_i
-    # passando os parâmetros desta ordem
-    new_product?(order_params["product_id"].to_i, order_params["quantity"].to_i)
-    @order.save
-    # salva aquela ordem no cookie
-    session[:order_id] = @order.id
-    market = Stall.find(order_params["stall_id"].to_i).market
-    redirect_to market_path(market)
+    # não queremos que uma pessoa cadastrada como feirante adicione no carrinho!
+    if current_seller.nil?
+      @order = current_order
+      @order.stall_id = order_params["stall_id"].to_i
+      # passando os parâmetros desta ordem
+      new_product?(order_params["product_id"].to_i, order_params["quantity"].to_i)
+      @order.save
+      # salva aquela ordem no cookie
+      session[:order_id] = @order.id
+      market = Stall.find(order_params["stall_id"].to_i).market
+      redirect_to market_path(market)
+    else
+      redirect_to :back
+      flash[:alert] = "Você não pode estar cadastrado como feirante para comprar!"
+    end
   end
 
   def update

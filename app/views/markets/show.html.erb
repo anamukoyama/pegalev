@@ -1,5 +1,8 @@
+
 <div class="container fit-header">
-  <%= @market.name %>
+  <span style="color:blue;"><%= flash[:alert] %></span>
+
+  <p><%= @market.name %></p>
 
   <% if @market.sellers == [] %>
 

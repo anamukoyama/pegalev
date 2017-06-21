@@ -6,7 +6,6 @@ class Order < ApplicationRecord
   belongs_to :order_status
 
   before_save :update_total
-  before_create :set_order_status
 
   def calculate_total
     self.order_items.collect { |item| item.product.price * item.quantity.to_i }.sum

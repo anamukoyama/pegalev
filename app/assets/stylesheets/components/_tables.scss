@@ -11,3 +11,26 @@
     margin-top: 15px;
   }
 }
+
+@media screen and (max-width: 480px){
+
+  #my_products, #my_stalls{
+    font-size: 12px;
+  tr th {
+    padding-right: 5px;
+    padding-left: 5px;
+    }
+  tr th,td{
+    text-align: center;
+    width: 25px;
+    }
+  .form-group input{
+    margin-top: 10px;
+    }
+  }
+  .no-padding{
+    padding: 0px;
+  }
+
+
+}
