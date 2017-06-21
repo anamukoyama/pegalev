@@ -27,7 +27,7 @@ gem "simple_form"
 gem "autoprefixer-rails"
 gem "geocoder"
 gem "gmaps4rails"
-gem "rails-assets-underscore"
+# gem "rails-assets-underscore"
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'cloudinary'
