@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    if current_seller.nil?
+      root_path
+    else
+      overview_path
+    end
+  end
+
 end
