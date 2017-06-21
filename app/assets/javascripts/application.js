@@ -13,7 +13,6 @@
 //= require jquery/dist/jquery
 //= require jquery-ujs/src/rails
 //= require turbolinks/dist/turbolinks
-//= require underscore
 //= require gmaps/google
 //= require jquery-1.11.1.min.js
 //= require jquery-ui.min.js
